@@ -8,6 +8,26 @@ const TMDB = "https://image.tmdb.org/t/p/";
 const movieDatabase = [
     // --------------------------- new  ----------------------------
     {
+        id: "obsession", 
+        title: "Obsession", 
+        year: 2026, 
+        duration: "115 นาที",
+        director: "Chloe Okuno", 
+        cast: ["Sydney Sweeney", "Nicholas Hoult", "Colman Domingo", "Riley Keough"],
+        genres: ["Thriller", "Mystery", "Drama"], 
+        rating: 72,
+        releaseDate: "12 ก.พ. 2026", 
+        status: "ฉายแล้ว", 
+        tmdbId: 1048592,
+        poster: TMDB+"https://image.tmdb.org/t/p/original/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+        backdrop: TMDB+"https://image.tmdb.org/t/p/original/r013C8Me2bZ0pUi0OWJRh0h7MzT.jpg",
+        trailerEmbed: "https://www.youtube.com/embed/gMC8kkwbIQQ?si=W8M7c5VyYqicFDla",
+        synopsis: "เรื่องราวของจิตแพทย์สาวผู้มีชีวิตครอบครัวและหน้าที่การงานที่สมบูรณ์แบบ แต่ทุกอย่างเริ่มพังทลายลงเมื่อเธอรับคนไข้ลึกลับคนใหม่ที่ค่อยๆ ก้าวล่วงเส้นแบ่งของจรรยาบรรณ และคืบคลานเข้ามาครอบงำชีวิตส่วนตัวของเธอ นำไปสู่เกมจิตวิทยาปั่นประสาทที่อันตรายถึงชีวิต",
+        aiReview: "ภาพยนตร์สไตล์จิตวิทยาระทึกขวัญที่เล่นกับความหวาดระแวงของผู้ชมได้อย่างแนบเนียน ผู้กำกับสร้างบรรยากาศอึดอัดและไม่น่าไว้วางใจได้ตลอดทั้งเรื่อง การแสดงนำช่วยดึงความสนใจของผู้ชมได้ดี แม้บางจุดของบทจะอาศัยความบังเอิญมากไปนิด แต่การหักมุมในช่วงท้ายก็ยังคงสร้างความตกตะลึงได้สำเร็จ",
+        pros: ["บรรยากาศและดนตรีประกอบสร้างความอึดอัดปั่นประสาทได้ดีเยี่ยม", "การแสดงนำที่ทรงพลังและเต็มไปด้วยความซับซ้อนทางอารมณ์", "จุดหักมุมช่วงท้ายที่คาดเดาได้ยากและลุ้นระทึก"],
+        cons: ["ช่วงกลางเรื่องมีจังหวะการเดินเรื่องที่ค่อนข้างอืดอาด", "พฤติกรรมของตัวละครบางตัวดูไม่ค่อยสมเหตุสมผลในบางสถานการณ์"]
+    },
+    {
         id: "spiderman-brand-new-day", 
         title: "Spider-Man: Brand New Day", 
         year: 2026, 
