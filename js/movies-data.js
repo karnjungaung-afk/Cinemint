@@ -8,32 +8,18 @@ const TMDB = "https://image.tmdb.org/t/p/";
 const movieDatabase = [
     // ─────────────────────────── 2024 ────────────────────────────
     {
-        id:"dune-part-two", title:"Dune three", year:2024, duration:"166 นาที",
-        director:"Denis Villeneuve",
-        cast:["Timothée Chalamet","Zendaya","Rebecca Ferguson","Javier Bardem","Austin Butler","Florence Pugh"],
-        genres:["Sci-Fi","Adventure","Drama"], rating:92,
-        releaseDate:"1 มี.ค. 2024", status:"ฉายแล้ว", tmdbId:693134,
-        poster:TMDB+"https://image.tmdb.org/t/p/original/6izwz7rsy95ARzTR3poZ8H6c5pp.jpg",
-        backdrop:TMDB+"https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
-        trailerEmbed:"https://www.youtube.com/embed/Way9Dexny3w",
-        synopsis:"พอล อะเทรเดส รวมพลังกับชานีและชาวเฟรเมน เพื่อออกตามล้างแค้นกลุ่มผู้สมคบคิดที่ทำลายล้างครอบครัวของเขา",
-        aiReview:"ภาคต่อที่ยกระดับทุกองค์ประกอบของภาคแรก ทั้งสเกลงานสร้าง การถ่ายภาพ และดนตรีของ Hans Zimmer จุดแข็งคือการพาผู้ชมเข้าสู่ความซับซ้อนทางศีลธรรมของพอลในฐานะผู้นำที่กำลังเดินเข้าสู่เส้นทางของผู้กดขี่",
-        pros:["งานภาพและซาวด์ดีไซน์ระดับมาสเตอร์พีซ","พัฒนาการตัวละครพอลในเชิงศีลธรรมที่ลึกซึ้ง","ฉากแอ็กชันสเกลยักษ์ที่กำกับได้สมจริง"],
-        cons:["ความยาวและหนาแน่นอาจไม่เป็นมิตรกับผู้ชมหน้าใหม่","จังหวะช่วงกลางเรื่องค่อนข้างหน่วง"]
-    },
-    {
-        id:"dune-part-two", title:"Dune: Part Two", year:2024, duration:"166 นาที",
-        director:"Denis Villeneuve",
-        cast:["Timothée Chalamet","Zendaya","Rebecca Ferguson","Javier Bardem","Austin Butler","Florence Pugh"],
-        genres:["Sci-Fi","Adventure","Drama"], rating:92,
-        releaseDate:"1 มี.ค. 2024", status:"ฉายแล้ว", tmdbId:693134,
-        poster:TMDB+"https://image.tmdb.org/t/p/original/6izwz7rsy95ARzTR3poZ8H6c5pp.jpg",
-        backdrop:TMDB+"https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
-        trailerEmbed:"https://www.youtube.com/embed/Way9Dexny3w",
-        synopsis:"พอล อะเทรเดส รวมพลังกับชานีและชาวเฟรเมน เพื่อออกตามล้างแค้นกลุ่มผู้สมคบคิดที่ทำลายล้างครอบครัวของเขา",
-        aiReview:"ภาคต่อที่ยกระดับทุกองค์ประกอบของภาคแรก ทั้งสเกลงานสร้าง การถ่ายภาพ และดนตรีของ Hans Zimmer จุดแข็งคือการพาผู้ชมเข้าสู่ความซับซ้อนทางศีลธรรมของพอลในฐานะผู้นำที่กำลังเดินเข้าสู่เส้นทางของผู้กดขี่",
-        pros:["งานภาพและซาวด์ดีไซน์ระดับมาสเตอร์พีซ","พัฒนาการตัวละครพอลในเชิงศีลธรรมที่ลึกซึ้ง","ฉากแอ็กชันสเกลยักษ์ที่กำกับได้สมจริง"],
-        cons:["ความยาวและหนาแน่นอาจไม่เป็นมิตรกับผู้ชมหน้าใหม่","จังหวะช่วงกลางเรื่องค่อนข้างหน่วง"]
+        id:"alien-romulus", title:"Alien: Romulus", year:2024, duration:"119 นาที",
+        director:"Fede Álvarez",
+        cast:["Cailee Spaeny","David Jonsson","Archie Renaux","Isabela Merced","Spike Fearn"],
+        genres:["Horror","Sci-Fi","Thriller"], rating:76,
+        releaseDate:"16 ส.ค. 2024", status:"ฉายแล้ว", tmdbId:945961,
+        poster:TMDB+"https://image.tmdb.org/t/p/original/9zkAu0oiGO9ToQINxbwIwRemuUb.jpg",
+        backdrop:TMDB+"https://image.tmdb.org/t/p/original/eP4RZSHliWu6lPT5WQyHr5ZZKuC.jpg",
+        trailerEmbed:"https://www.youtube.com/embed/OzY2r2JXsDM",
+        synopsis:"กลุ่มนักล่าอาณานิคมอวกาศรุ่นใหม่บุกเข้าสำรวจสถานีอวกาศร้าง โดยไม่รู้เลยว่าสิ่งมีชีวิตที่อันตรายที่สุดในจักรวาลกำลังรอพวกเขาอยู่ในความมืด",
+        aiReview:"Fede Álvarez พาแฟรนไชส์ Alien กลับสู่รากเหง้าของ Survival Horror ได้อย่างเฉียบคม การออกแบบฉากภายในสถานีที่แคบและมืดขับบรรยากาศน่ากลัวได้ตลอดเรื่อง Cailee Spaeny แสดงได้น่าเชื่อถือในบท Final Girl คนใหม่ของซีรีส์",
+        pros:["กลับสู่รากเหง้า Survival Horror ได้อย่างเข้มข้น","งานออกแบบฉากและแสงสร้างความน่ากลัวได้ยอดเยี่ยม","Cailee Spaeny แบกหนังได้น่าประทับใจ"],
+        cons:["Fan Service และอ้างอิงภาคเก่ามากเกินไป","ตัวละครสมทบหลายคนมีมิติค่อนข้างบาง"]
     },
     {
         id:"dune-part-two", title:"Dune: Part Two", year:2024, duration:"166 นาที",
