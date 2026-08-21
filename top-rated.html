@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คะแนนสูงสุด &amp; แนวหนัง — CineMint</title>
+    <meta name="description" content="จัดอันดับภาพยนตร์คะแนนสูงสุดโดย MintBot AI กรองตามแนวหนัง — Drama, Sci-Fi, Horror, Animation และอื่นๆ">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🍃 CineMint <span>รีวิวโดย AI</span></a>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 ค้นหาหนัง, นักแสดง, ผู้กำกับ..." autocomplete="off">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="now-showing.html">กำลังฉาย</a></li>
+                <li><a href="top-rated.html" class="active">คะแนนสูงสุด</a></li>
+                <li><a href="tierlist.html">Tier List</a></li>
+                <li><a href="discover.html">ค้นพบ</a></li>
+                <li><a href="compare.html">เปรียบเทียบ</a></li>
+                <li><a href="stats.html">สถิติ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <div class="grain-overlay"></div>
+        <p class="page-banner-eyebrow">🏆 AI Rankings</p>
+        <h1>คะแนนสูงสุด &amp; แนวหนัง</h1>
+        <p>ภาพยนตร์ที่ MintBot AI มอบคะแนนสูงสุด จัดอันดับจาก <strong style="color:var(--mint-glow);">100 คะแนน</strong> เต็ม กรองตามแนวหนังที่คุณสนใจได้ทันที</p>
+        <!-- Genre Chips — ถูก Render โดย js/top-rated.js -->
+        <div class="genre-chips" id="genre-chips"></div>
+    </div>
+
+    <p class="result-count" id="top-rated-count"></p>
+
+    <!-- Grid เต็มหน้า — เนื้อหาถูก Render โดย js/top-rated.js -->
+    <div class="movies-grid-full" id="top-rated-grid"></div>
+
+    <footer>
+        <div>
+            <h3>🍃 CineMint</h3>
+            <p>รีวิวหนังเชิงลึกจาก AI อย่างเป็นกลาง ไม่รับอิทธิพลจากสตูดิโอ<br>วิเคราะห์ทุกเรื่องด้วยข้อมูลและเหตุผล ไม่ใช่ความรู้สึกเพียงอย่างเดียว</p>
+        </div>
+        <div>
+            <h4>สำรวจ</h4>
+            <p>
+                <a href="now-showing.html">กำลังฉาย</a><br>
+                <a href="top-rated.html">คะแนนสูงสุด</a><br>
+                <a href="tierlist.html">Tier List</a><br>
+                <a href="discover.html">ค้นพบ</a><br>
+                <a href="stats.html">สถิติ</a>
+            </p>
+        </div>
+                <div>
+            <h4>เกี่ยวกับ</h4>
+            <p>
+                <a href="about.html">เกี่ยวกับเรา</a><br>
+                <a href="contact.html">ติดต่อเรา</a><br>
+                <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
+            </p>
+        </div>
+        <div class="footer-bottom">
+            © 2026 CineMint — Powered by MintBot AI &nbsp;•&nbsp; สร้างด้วย HTML, CSS และ JavaScript ล้วนๆ
+        </div>
+    </footer>
+
+    <script src="js/movies-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/tmdb-images.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/top-rated.js"></script>
+    <script src="js/mintbot-chat.js"></script>
+</body>
+</html>
