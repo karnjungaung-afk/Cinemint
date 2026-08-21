@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา — CineMint</title>
+    <meta name="description" content="ติดต่อทีม CineMint — แนะนำหนัง แจ้งปัญหา หรือสอบถามข้อมูลเพิ่มเติม">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">🍃 CineMint <span>รีวิวโดย AI</span></a>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="🔍 ค้นหาหนัง, นักแสดง, ผู้กำกับ..." autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+    <nav>
+            <ul>
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="now-showing.html">กำลังฉาย</a></li>
+                <li><a href="top-rated.html">คะแนนสูงสุด</a></li>
+                <li><a href="tierlist.html">Tier List</a></li>
+                <li><a href="discover.html">ค้นพบ</a></li>
+                <li><a href="compare.html">เปรียบเทียบ</a></li>
+                <li><a href="stats.html">สถิติ</a></li>
+            </ul>
+        </nav>
+</header>
+
+<main class="content-page">
+    <span class="eyebrow">📮 Contact</span>
+    <h1>ติดต่อเรา</h1>
+    <p class="lead">มีคำถาม อยากแนะนำหนัง แจ้งข้อผิดพลาด หรืออยากร่วมงานกับ CineMint? เราพร้อมรับฟังเสมอ</p>
+
+    <!-- Contact info cards -->
+    <div class="contact-cards">
+        <div class="contact-card">
+            <div class="cc-icon">✉️</div>
+            <div class="cc-label">อีเมล</div>
+            <div class="cc-value"><a href="mailto:karnjungaung@gmail.com">karnjungaung@gmail.com</a></div>
+        </div>
+        <div class="contact-card">
+            <div class="cc-icon">💬</div>
+            <div class="cc-label">ตอบกลับภายใน</div>
+            <div class="cc-value" style="color:var(--mint-glow);">24–48 ชั่วโมง</div>
+        </div>
+    </div>
+
+    <h2><i class="fa-solid fa-paper-plane" style="color:var(--mint-glow);font-size:1rem;"></i> ส่งข้อความหาเรา</h2>
+
+    <div class="contact-form" id="contact-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="cf-name">ชื่อ-นามสกุล <span style="color:var(--red-accent)">*</span></label>
+                <input type="text" id="cf-name" placeholder="เช่น สมชาย ใจดี" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="cf-email">อีเมล <span style="color:var(--red-accent)">*</span></label>
+                <input type="email" id="cf-email" placeholder="your@email.com" autocomplete="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cf-subject">หัวข้อ</label>
+            <select id="cf-subject">
+                <option value="">-- เลือกหัวข้อ --</option>
+                <option value="suggest">แนะนำหนังให้รีวิว</option>
+                <option value="bug">แจ้งข้อผิดพลาด</option>
+                <option value="review">ไม่เห็นด้วยกับรีวิว</option>
+                <option value="collab">ร่วมงาน / Partnership</option>
+                <option value="other">อื่นๆ</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cf-message">ข้อความ <span style="color:var(--red-accent)">*</span></label>
+            <textarea id="cf-message" placeholder="เขียนข้อความของคุณที่นี่..."></textarea>
+        </div>
+        <div class="form-submit">
+            <button type="button" class="btn-mint" id="cf-submit">
+                <i class="fa-solid fa-paper-plane"></i> ส่งข้อความ
+            </button>
+        </div>
+        <div class="form-success" id="form-success">
+            <div style="font-size:2rem;margin-bottom:10px;">🎉</div>
+            ขอบคุณที่ติดต่อมานะครับ!<br>
+            <span style="font-weight:400;font-size:0.9rem;color:var(--mint-dim);">
+                เราจะตอบกลับภายใน 24–48 ชั่วโมง ที่อีเมลที่คุณให้ไว้
+            </span>
+        </div>
+    </div>
+
+    <hr class="content-divider">
+
+    <h2><i class="fa-solid fa-circle-question" style="color:var(--mint-glow);font-size:1rem;"></i> คำถามที่พบบ่อย</h2>
+    <dl class="faq-list">
+        <dt>คะแนนของ MintBot AI มาจากไหน?</dt>
+        <dd>MintBot วิเคราะห์ภาพยนตร์จากหลายมิติโดยไม่ได้รับค่าตอบแทนจากสตูดิโอใดๆ คะแนนสะท้อนคุณค่าทางศิลปะและความบันเทิงตามที่ AI ประเมิน ซึ่งอาจแตกต่างจากรสนิยมส่วนตัวของแต่ละคน</dd>
+        <dt>จะแนะนำหนังที่อยากให้รีวิวได้อย่างไร?</dt>
+        <dd>ส่งชื่อหนัง ปีที่ฉาย และเหตุผลที่อยากให้รีวิวมาในฟอร์มด้านบน เลือกหัวข้อ "แนะนำหนังให้รีวิว" ทีมของเราจะพิจารณาและเพิ่มในฐานข้อมูลให้เร็วที่สุด</dd>
+        <dt>ไม่เห็นด้วยกับรีวิวจะทำอย่างไร?</dt>
+        <dd>ยินดีรับฟังทุกความเห็น! ส่งมาได้เลยพร้อมเหตุผลที่ชัดเจน เราเชื่อว่าการถกเถียงอย่างสร้างสรรค์ทำให้วงการหนังดีขึ้น</dd>
+    </dl>
+</main>
+
+<footer>
+    <div>
+        <h3>🍃 CineMint</h3>
+        <p>รีวิวหนังเชิงลึกจาก AI อย่างเป็นกลาง ไม่รับอิทธิพลจากสตูดิโอ<br>วิเคราะห์ทุกเรื่องด้วยข้อมูลและเหตุผล ไม่ใช่ความรู้สึกเพียงอย่างเดียว</p>
+    </div>
+    <div>
+        <h4>สำรวจ</h4>
+        <p>
+            <a href="now-showing.html">กำลังฉาย</a><br>
+                <a href="top-rated.html">คะแนนสูงสุด</a><br>
+                <a href="tierlist.html">Tier List</a><br>
+                <a href="discover.html">ค้นพบ</a><br>
+                <a href="stats.html">สถิติ</a>
+        </p>
+    </div>
+    <div>
+        <h4>เกี่ยวกับ</h4>
+        <p>
+            <a href="about.html">เกี่ยวกับเรา</a><br>
+            <a href="contact.html">ติดต่อเรา</a><br>
+            <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
+        </p>
+    </div>
+    <div class="footer-bottom">
+        © 2026 CineMint — Powered by MintBot AI &nbsp;•&nbsp; Make by Karn Jungaung
+    </div>
+</footer>
+
+<script src="js/movies-data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/tmdb-images.js"></script>
+<script src="js/search.js"></script>
+<script>
+// Contact form — client-side validation + success state (ไม่มี backend)
+document.getElementById("cf-submit").addEventListener("click", () => {
+    const name    = document.getElementById("cf-name").value.trim();
+    const email   = document.getElementById("cf-email").value.trim();
+    const message = document.getElementById("cf-message").value.trim();
+
+    if (!name || !email || !message) {
+        const missing = [];
+        if (!name)    missing.push("ชื่อ");
+        if (!email)   missing.push("อีเมล");
+        if (!message) missing.push("ข้อความ");
+        alert(`กรุณากรอกข้อมูลให้ครบ: ${missing.join(', ')}`);
+        return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("รูปแบบอีเมลไม่ถูกต้อง");
+        return;
+    }
+
+    // ซ่อนฟอร์ม แสดง success
+    ["cf-name","cf-email","cf-subject","cf-message"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.closest('.form-group') && (el.closest('.form-group').style.display = 'none');
+    });
+    document.querySelector(".form-row").style.display = "none";
+    document.querySelector(".form-submit").style.display = "none";
+    document.getElementById("form-success").style.display = "block";
+});
+</script>
+    <script src="js/mintbot-chat.js"></script>
+</body>
+</html>

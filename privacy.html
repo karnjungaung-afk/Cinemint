@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นโยบายความเป็นส่วนตัว — CineMint</title>
+    <meta name="description" content="นโยบายความเป็นส่วนตัวของ CineMint — ข้อมูลที่เราเก็บ วิธีใช้ และสิทธิ์ของผู้ใช้">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">🍃 CineMint <span>รีวิวโดย AI</span></a>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="🔍 ค้นหาหนัง, นักแสดง, ผู้กำกับ..." autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+    <nav>
+            <ul>
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="now-showing.html">กำลังฉาย</a></li>
+                <li><a href="top-rated.html">คะแนนสูงสุด</a></li>
+                <li><a href="tierlist.html">Tier List</a></li>
+                <li><a href="discover.html">ค้นพบ</a></li>
+                <li><a href="compare.html">เปรียบเทียบ</a></li>
+                <li><a href="stats.html">สถิติ</a></li>
+            </ul>
+        </nav>
+</header>
+
+<main class="content-page">
+    <span class="eyebrow">🔒 Privacy Policy</span>
+    <h1>นโยบายความเป็นส่วนตัว</h1>
+    <p class="lead">CineMint ให้ความสำคัญกับความเป็นส่วนตัวของผู้ใช้ทุกคน นโยบายนี้อธิบายว่าเราเก็บข้อมูลอะไร ใช้อย่างไร และคุณมีสิทธิ์อะไรบ้าง</p>
+
+    <div class="privacy-highlight">
+        <strong>อัปเดตล่าสุด:</strong> 24 มิถุนายน 2026 &nbsp;•&nbsp;
+        <strong>มีผลบังคับ:</strong> 24 มิถุนายน 2026
+    </div>
+
+    <h2><i class="fa-solid fa-database" style="color:var(--mint-glow);font-size:1rem;"></i> 1. ข้อมูลที่เราเก็บ</h2>
+    <p>CineMint เป็นเว็บไซต์ฝั่ง Client-side ล้วนๆ ที่ทำงานในเบราว์เซอร์ของคุณ เราไม่มีเซิร์ฟเวอร์ที่รับและจัดเก็บข้อมูลส่วนตัวของผู้ใช้ อย่างไรก็ตาม ข้อมูลบางส่วนอาจถูกเก็บในอุปกรณ์ของคุณเอง ได้แก่</p>
+    <ul>
+        <li><strong>localStorage:</strong> เก็บการตั้งค่า TMDB API Key (ถ้าคุณกรอก) และแคชข้อมูลภาพยนตร์เพื่อลดการเรียก API ซ้ำ ข้อมูลเหล่านี้อยู่บนอุปกรณ์ของคุณเท่านั้น ไม่ถูกส่งมาที่เรา</li>
+        <li><strong>แบบฟอร์มติดต่อ:</strong> หากคุณกรอกฟอร์มติดต่อ ข้อมูลจะถูกประมวลผลใน JavaScript เพื่อตรวจสอบรูปแบบเท่านั้น ไม่มีการส่งข้อมูลไปที่เซิร์ฟเวอร์ใดๆ ในเวอร์ชันสาธิตนี้</li>
+    </ul>
+
+    <h2><i class="fa-solid fa-share-nodes" style="color:var(--mint-glow);font-size:1rem;"></i> 2. บริการของบุคคลที่สาม</h2>
+    <p>CineMint ใช้บริการของบุคคลที่สามดังต่อไปนี้ ซึ่งมีนโยบายความเป็นส่วนตัวของตนเอง</p>
+    <ul>
+        <li><strong>The Movie Database (TMDB):</strong> ใช้สำหรับดึงข้อมูลโปสเตอร์และข้อมูลภาพยนตร์ เมื่อเบราว์เซอร์โหลดรูปภาพจาก <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;">image.tmdb.org</code> TMDB อาจบันทึก IP address ของคุณตามนโยบายของพวกเขา</li>
+        <li><strong>YouTube (Google):</strong> ใช้สำหรับฝังตัวอย่างหนัง เมื่อโหลด iframe ของ YouTube, Google อาจวาง cookie ในเบราว์เซอร์ตามนโยบายของ Google</li>
+        <li><strong>Google Fonts:</strong> ใช้โหลดฟอนต์ Fraunces และ Inter จาก Google Fonts CDN ซึ่ง Google อาจบันทึก request log</li>
+        <li><strong>Font Awesome:</strong> ใช้โหลด icon จาก Cloudflare CDN</li>
+    </ul>
+
+    <h2><i class="fa-solid fa-cookie-bite" style="color:var(--mint-glow);font-size:1rem;"></i> 3. คุกกี้และ Local Storage</h2>
+    <div class="privacy-highlight">
+        CineMint ไม่วาง <strong>คุกกี้ติดตาม (Tracking Cookies)</strong> ของตัวเองเลย ข้อมูลใน localStorage ที่เราสร้างขึ้นมีไว้เพื่อการทำงานของเว็บไซต์เท่านั้น ได้แก่ แคช TMDB API และการตั้งค่า
+    </div>
+    <p>คุณสามารถลบข้อมูล localStorage ได้ตลอดเวลาผ่าน Developer Tools ของเบราว์เซอร์ (F12 → Application → Local Storage)</p>
+
+    <h2><i class="fa-solid fa-shield-halved" style="color:var(--mint-glow);font-size:1rem;"></i> 4. ความปลอดภัยของข้อมูล</h2>
+    <p>เนื่องจาก CineMint ไม่มีเซิร์ฟเวอร์รับข้อมูล ความเสี่ยงจากการรั่วไหลของข้อมูลจากฝั่งเราจึงมีน้อยมาก อย่างไรก็ตาม เราแนะนำให้</p>
+    <ul>
+        <li>ไม่แชร์ TMDB API Key ของคุณกับผู้อื่น</li>
+        <li>ล้าง localStorage เป็นครั้งคราว โดยเฉพาะเมื่อใช้คอมพิวเตอร์สาธารณะ</li>
+        <li>ใช้เบราว์เซอร์ที่อัปเดตเป็นเวอร์ชันล่าสุดอยู่เสมอ</li>
+    </ul>
+
+    <h2><i class="fa-solid fa-child-reaching" style="color:var(--mint-glow);font-size:1rem;"></i> 5. ผู้ใช้ที่เป็นผู้เยาว์</h2>
+    <p>CineMint ไม่ได้ออกแบบมาเพื่อเก็บข้อมูลของผู้เยาว์อายุต่ำกว่า 13 ปีโดยเฉพาะ เนื้อหาภาพยนตร์บางเรื่องในฐานข้อมูลของเราอาจมีความรุนแรงหรือเนื้อหาสำหรับผู้ใหญ่ ผู้ปกครองควรดูแลการใช้งานของบุตรหลานตามความเหมาะสม</p>
+
+    <h2><i class="fa-solid fa-user-check" style="color:var(--mint-glow);font-size:1rem;"></i> 6. สิทธิ์ของคุณ</h2>
+    <p>เนื่องจากเราไม่ได้เก็บข้อมูลส่วนตัวของคุณบนเซิร์ฟเวอร์ คุณจึงมีสิทธิ์ควบคุมข้อมูลของตนเองได้อย่างสมบูรณ์</p>
+    <ul>
+        <li><strong>สิทธิ์เข้าถึง:</strong> ดูข้อมูลที่เก็บใน localStorage ผ่าน Developer Tools</li>
+        <li><strong>สิทธิ์ลบ:</strong> ลบข้อมูลทั้งหมดได้ผ่าน Clear Site Data ในเบราว์เซอร์</li>
+        <li><strong>สิทธิ์คัดค้าน:</strong> ปิด YouTube iframe หรือบล็อก Google Fonts ผ่านส่วนขยายของเบราว์เซอร์</li>
+    </ul>
+
+    <h2><i class="fa-solid fa-pen-to-square" style="color:var(--mint-glow);font-size:1rem;"></i> 7. การเปลี่ยนแปลงนโยบาย</h2>
+    <p>เราอาจอัปเดตนโยบายนี้เป็นครั้งคราว การเปลี่ยนแปลงจะแสดงวันที่อัปเดตที่ด้านบนของหน้านี้ การใช้งานเว็บไซต์ต่อหลังจากการเปลี่ยนแปลงถือว่าคุณยอมรับนโยบายใหม่</p>
+
+    <h2><i class="fa-solid fa-envelope" style="color:var(--mint-glow);font-size:1rem;"></i> 8. ติดต่อเราเรื่องความเป็นส่วนตัว</h2>
+    <p>หากมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ กรุณาติดต่อ</p>
+    <div class="privacy-highlight">
+        📧 <strong>karnjungaung@gmail.com</strong><br>
+        หรือใช้ <a href="contact.html" style="color:var(--mint-glow);">แบบฟอร์มติดต่อ</a> บนเว็บไซต์ของเรา
+    </div>
+
+    <hr class="content-divider">
+    <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="index.html" class="btn-mint"><i class="fa-solid fa-house"></i> กลับหน้าหลัก</a>
+        <a href="about.html" class="btn-outline"><i class="fa-solid fa-leaf"></i> เกี่ยวกับเรา</a>
+        <a href="contact.html" class="btn-outline"><i class="fa-solid fa-envelope"></i> ติดต่อเรา</a>
+    </div>
+</main>
+
+<footer>
+    <div>
+        <h3>🍃 CineMint</h3>
+        <p>รีวิวหนังเชิงลึกจาก AI อย่างเป็นกลาง ไม่รับอิทธิพลจากสตูดิโอ<br>วิเคราะห์ทุกเรื่องด้วยข้อมูลและเหตุผล ไม่ใช่ความรู้สึกเพียงอย่างเดียว</p>
+    </div>
+    <div>
+        <h4>สำรวจ</h4>
+        <p>
+            <a href="now-showing.html">กำลังฉาย</a><br>
+                <a href="top-rated.html">คะแนนสูงสุด</a><br>
+                <a href="tierlist.html">Tier List</a><br>
+                <a href="discover.html">ค้นพบ</a><br>
+                <a href="stats.html">สถิติ</a>
+        </p>
+    </div>
+    <div>
+        <h4>เกี่ยวกับ</h4>
+        <p>
+            <a href="about.html">เกี่ยวกับเรา</a><br>
+            <a href="contact.html">ติดต่อเรา</a><br>
+            <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
+        </p>
+    </div>
+    <div class="footer-bottom">
+        © 2026 CineMint — Powered by MintBot AI &nbsp;•&nbsp; Make by Karn Jungaung
+    </div>
+</footer>
+
+<script src="js/movies-data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/tmdb-images.js"></script>
+<script src="js/search.js"></script>
+    <script src="js/mintbot-chat.js"></script>
+</body>
+</html>
