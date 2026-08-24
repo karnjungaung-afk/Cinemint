@@ -8,6 +8,26 @@ const TMDB = "https://image.tmdb.org/t/p/";
 const movieDatabase = [
     // --------------------------- new  ----------------------------
     {
+        id: "avengers-endgame", 
+        title: "Avengers: Endgame", 
+        year: 2019, 
+        duration: "181 นาที",
+        director: "Anthony Russo, Joe Russo",
+        cast: ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo", "Chris Hemsworth", "Scarlett Johansson"],
+        genres: ["Action", "Adventure", "Sci-Fi"], 
+        rating: 84,
+        releaseDate: "24 เม.ย. 2019", 
+        status: "ฉายแล้ว", 
+        tmdbId: 299534,
+        poster: TMDB+"https://image.tmdb.org/t/p/original/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+        backdrop: TMDB+"https://image.tmdb.org/t/p/original/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+        trailerEmbed: "https://www.youtube.com/embed/TcMBFSGVi1c?si=XTD5ugVLYFqLSgqZ",
+        synopsis: "หลังจากเหตุการณ์การดีดนิ้วของธานอสที่คร่าชีวิตสิ่งมีชีวิตไปครึ่งจักรวาล เหล่าอเวนเจอร์สที่เหลือรอดต้องรวมตัวกันอีกครั้งเพื่อหาทางย้อนเวลาไปรวบรวมมณีอินฟินิตี้ และแก้ไขสิ่งที่ผิดพลาดเพื่อนำทุกคนกลับมา แม้จะต้องแลกด้วยเดิมพันที่สูงที่สุดในชีวิตก็ตาม",
+        aiReview: "บทสรุปอันยิ่งใหญ่ของ Infinity Saga ที่ใช้เวลาปูทางมานับสิบปี สองพี่น้องรุสโซ่สามารถจัดการกับตัวละครจำนวนมหาศาลและเส้นเรื่องที่ซับซ้อนได้อย่างลงตัว ครบถ้วนทั้งอารมณ์ขัน ฉากแอ็กชันสุดอลังการ และจังหวะเรียกน้ำตาที่ทำเอาแฟนๆ ใจสลาย เป็นจดหมายรักถึงแฟนมาร์เวลที่สมบูรณ์แบบที่สุด",
+        pros: ["บทสรุปที่ยิ่งใหญ่ อิ่มเอม และเติมเต็มความผูกพันตลอด 11 ปีของแฟรนไชส์", "การเล่าเรื่องผ่านการย้อนเวลา (Time Heist) เป็นการรำลึกความหลังที่ฉลาดมาก", "ฉากการต่อสู้ในองก์สุดท้ายคือหนึ่งในฉากที่ยิ่งใหญ่ที่สุดในประวัติศาสตร์หนังซูเปอร์ฮีโร่"],
+        cons: ["ทฤษฎีการย้อนเวลาในเรื่องอาจมีจุดที่ย้อนแย้งและชวนสับสนอยู่บ้าง", "ช่วงต้นเรื่อง (องก์แรก) ดำเนินเรื่องค่อนข้างช้าเพื่อเน้นเยียวยาบาดแผลทางอารมณ์ของตัวละคร"]
+    },
+    {
         id: "the-backrooms", 
         title: "The Backrooms", 
         year: 2026, 
