@@ -8,6 +8,26 @@ const TMDB = "https://image.tmdb.org/t/p/";
 const movieDatabase = [
     // --------------------------- new  ----------------------------
     {
+        id: "avatar-fire-and-ash", 
+        title: "Avatar: Fire and Ash (อวตาร: อัคนีและธุลีดิน)", 
+        year: 2025, 
+        duration: "190 นาที",
+        director: "James Cameron",
+        cast: ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver", "Stephen Lang", "Oona Chaplin"],
+        genres: ["Sci-Fi", "Action", "Adventure", "Fantasy"], 
+        rating: 87,
+        releaseDate: "19 ธ.ค. 2025", 
+        status: "ฉายแล้ว", 
+        tmdbId: 83533,
+        poster: TMDB+"https://image.tmdb.org/t/p/original/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
+        backdrop: TMDB+"https://image.tmdb.org/t/p/original/3Dqievkc7krcTtDE2hjRkIsEzB1.jpg",
+        trailerEmbed: "https://www.youtube.com/embed/PEMUqWvUTpU?si=WDpBdN7oWtv1mHqm",
+        synopsis: "เจค ซัลลี่ และเนย์ทีรี่ ต้องเผชิญหน้ากับความขัดแย้งครั้งใหม่บนดาวแพนดอร่า เมื่อพวกเขาได้พบกับ 'เผ่าเถ้าถ่าน' (Ash People) ชนเผ่านาวีแห่งไฟผู้นำโดย วารัง (Varang) ซึ่งมีวิถีชีวิตที่ดุดันและมุมมองต่อธรรมชาติที่ต่างออกไป ทำให้ความขัดแย้งไม่ได้จำกัดอยู่แค่ระหว่างมนุษย์กับนาวีอีกต่อไป",
+        aiReview: "James Cameron ยกระดับจักรวาลแพนดอร่าขึ้นไปอีกขั้นด้วยการเปิดตัวเผ่าเถ้าถ่านที่พลิกมิติของชาวนาวีให้มีความซับซ้อนและมีด้านมืดมากขึ้น งานด้านเทคนิคและ CGI ยังคงเป็นมาตรฐานสูงสุดของวงการภาพยนตร์ การเล่าเรื่องเข้มข้นขึ้นด้วยความขัดแย้งเชิงศีลธรรมและผลกระทบของสงครามที่ส่งผลต่อครอบครัวซัลลี่โดยตรง",
+        pros: ["งานภาพ CGI และการออกแบบสิ่งแวดล้อมภูเขาไฟทำได้สมจริงตระการตา", "การนำเสนอเผ่านาวีฝั่งตัวร้ายเพิ่มมิติและความลึกให้แก่จักรวาลแพนดอร่า", "ฉากแอ็กชันสเกลใหญ่ที่ออกแบบได้อย่างยอดเยี่ยมและลุ้นระทึก"],
+        cons: ["ความยาวของหนังเกือบ 3 ชั่วโมงอาจทำให้รู้สึกเหนื่อยล้าในการรับชม", "โครงเรื่องหลักบางส่วนยังคงอิงตามสูตรสำเร็จของสองภาคแรก"]
+    },
+    {
         id: "top-secret-the-billionaire", 
         title: "Top Secret วัยรุ่นพันล้าน (The Billionaire)", 
         year: 2011, 
