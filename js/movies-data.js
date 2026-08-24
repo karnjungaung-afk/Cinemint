@@ -21,7 +21,7 @@ const movieDatabase = [
         tmdbId: 1012345,
         poster: TMDB+"https://image.tmdb.org/t/p/original/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
         backdrop: TMDB+"https://image.tmdb.org/t/p/original/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
-        trailerEmbed: "https://www.youtube.com/embed/placeholder_backrooms",
+        trailerEmbed: "https://www.youtube.com/embed/0HjdiohVOik?si=W3WF-grG92EqEkTd",
         synopsis: "กลุ่มวัยรุ่นบังเอิญตกลงไปในมิติปริศนา (No-clip) ที่เต็มไปด้วยทางเดินพรมเก่าๆ วอลเปเปอร์สีเหลืองหม่น และเสียงครางหึ่งๆ ของหลอดไฟฟลูออเรสเซนต์ที่เชื่อมต่อกันเป็นเขาวงกตไม่รู้จบ พวกเขาต้องพยายามหาทางออกพร้อมกับเอาชีวิตรอดจาก 'บางสิ่ง' ที่ซ่อนตัวอยู่ในเงามืดของพื้นที่ไร้ขอบเขตแห่งนี้",
         aiReview: "A24 และผู้กำกับ Kane Parsons นำเสนอความน่ากลัวของ 'พื้นที่รอยต่อ' (Liminal Space) ออกมาได้อย่างสมบูรณ์แบบ งานภาพและการออกแบบเสียง (Sound Design) คือหัวใจหลักที่ทำให้คนดูรู้สึกอึดอัดและไม่ปลอดภัยตลอดเวลา แม้บทภาพยนตร์อาจจะดูวนเวียนไปบ้างตามสไตล์ของสถานที่ แต่ก็เป็นหนังเขย่าขวัญที่มอบประสบการณ์แปลกใหม่และกดดันขั้นสุด",
         pros: ["การสร้างบรรยากาศ Liminal Space ทำได้อึดอัดและชวนหลอนจิตตกมาก", "งานภาพและวิชวลเอฟเฟกต์เคารพต้นฉบับวิดีโอของ Kane Pixels แบบสุดๆ", "การออกแบบเสียงยอดเยี่ยมและสร้างความหวาดระแวงได้ดี"],
