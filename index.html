@@ -36,6 +36,26 @@
                 <li><a href="stats.html">สถิติ</a></li>
             </ul>
         </nav>
+        <!-- 1. นำปุ่มนี้ไปวางไว้บนสุดของหน้าเว็บ (เพื่อให้มีทุกหน้า) -->
+        <button id="music-toggle-btn" class="music-btn">
+            🔊 เปิดเพลง
+        </button>
+        
+        <!-- 2. ส่วนของ Trailer (อย่าลืมใส่ id="trailer-video" และ ?enablejsapi=1 ต่อท้ายลิงก์) -->
+        <div class="trailer-container">
+            <iframe 
+                id="trailer-video"
+                width="560" height="315" 
+                src="https://www.youtube.com/embed/bLvqoHBptjg?enablejsapi=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <!-- 3. อย่าลืมเชื่อมโยงไฟล์ CSS และ JS ในหน้า HTML ของคุณ -->
+        <!-- วาง CSS ไว้ใน <head> : <link rel="stylesheet" href="style.css"> -->
+        <!-- วาง JS ไว้ก่อนปิด </body> : <script src="script.js"></script> -->
     </header>
 
     <!-- Hero Banner — เนื้อหาถูก Render โดย js/main.js -->
