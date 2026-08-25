@@ -576,8 +576,9 @@ a.genre-tag-link:hover { border-color: var(--border-mint); color: var(--mint-glo
     font-size: 2.4rem;
     color: rgba(152, 255, 219, 0.16);
 }
-.poster-frame img:not([style*="display: none"]) + .poster-placeholder {
-    display: none;
+.poster-frame img:not(:last-of-type)
+.detail-poster-frame img:not(:last-of-type) {
+    display: none !important;
 }
 .poster-frame img {
     position: absolute;
