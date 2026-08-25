@@ -4,21 +4,6 @@
    Typography: Fraunces (display/editorial) + Inter (body/UI)
               + Noto Serif/Sans Thai (รองรับภาษาไทยในทั้งสองบทบาท)
    ============================================================ */
-/* ตกแต่งปุ่มและล็อกตำแหน่งไว้มุมขวาบน */
-.music-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    padding: 10px 20px;
-    background-color: #e50914; /* เปลี่ยนสีตามธีมเว็บของคุณได้ */
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
 
 :root {
     --bg-main: #0a0e0c;
