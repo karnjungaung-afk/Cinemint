@@ -259,8 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* Geolocation API — ดูโรงหนังใกล้คุณ */
-    // ==========================================
-    
     const cinemaBtn = document.getElementById("find-cinema-btn");
     if (cinemaBtn) {
         cinemaBtn.addEventListener("click", () => {
