@@ -1,39 +1,5 @@
 // js/main.js — หน้าแรก (index.html)
 document.addEventListener("DOMContentLoaded", () => {
-
-    // ==========================================
-    // ส่วนที่ 1: ระบบควบคุมเพลงพื้นหลัง
-    // ==========================================
-    const bgMusic = new Audio('ใส่ที่อยู่ไฟล์เพลงของคุณตรงนี้.mp3'); // **แก้ไขชื่อไฟล์เพลงที่นี่**
-    bgMusic.loop = true;
-    
-    const toggleBtn = document.getElementById('music-toggle-btn');
-    const isPlaying = localStorage.getItem('bgMusicPlaying') === 'true';
-    const savedTime = localStorage.getItem('bgMusicTime') || 0;
-    bgMusic.currentTime = parseFloat(savedTime);
-    
-    function updateButtonState(playing) {
-        toggleBtn.innerHTML = playing ? '🔊 ปิดเพลง' : '🔇 เปิดเพลง';
-    }
-    
-    if (isPlaying) {
-        bgMusic.play().catch(() => console.log("รอผู้ใช้คลิกหน้าเว็บก่อนเล่นเพลง"));
-        updateButtonState(true);
-    } else {
-        updateButtonState(false);
-    }
-    
-    toggleBtn.addEventListener('click', () => {
-        if (bgMusic.paused) {
-            bgMusic.play();
-            localStorage.setItem('bgMusicPlaying', 'true');
-            updateButtonState(true);
-        } else {
-            bgMusic.pause();
-            localStorage.setItem('bgMusicPlaying', 'false');
-            updateButtonState(false);
-        }
-    });
     
     window.addEventListener('beforeunload', () => {
         localStorage.setItem('bgMusicTime', bgMusic.currentTime);
