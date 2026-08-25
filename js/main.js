@@ -42,62 +42,62 @@ document.addEventListener("DOMContentLoaded", () => {
        ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 6 วินาที
        ─────────────────────────────────────────────────────────── */
     // =========================================================
-// แก้ไขฟังก์ชัน Hero Slideshow และ Render ภาพ
-// =========================================================
+    // แก้ไขฟังก์ชัน Hero Slideshow และ Render ภาพ
+    // =========================================================
 
-function buildPosterSlideshow(posters) {
-    const heroSection = document.getElementById('hero-section');
-    const mosaicContainer = document.querySelector('.hero-poster-mosaic');
+    function buildPosterSlideshow(posters) {
+        const heroSection = document.getElementById('hero-section');
+        const mosaicContainer = document.querySelector('.hero-poster-mosaic');
+        
+        if (!heroSection || !mosaicContainer || !posters || !posters.length) return;
     
-    if (!heroSection || !mosaicContainer || !posters || !posters.length) return;
-
-    // 1. ล้างภาพ static เดิมของ hero-section เพื่อไม่ให้ภาพพื้นหลังเดิมซ้อนทะลุขึ้นมา
-    heroSection.style.backgroundImage = 'none';
-
-    // 2. เคลียร์ Timer เก่าทิ้ง ป้องกันสคริปต์รันซ้ำแล้วเกิด Timer ซ้อนกันหลายตัว
-    if (window.slideshowTimer) {
-        clearInterval(window.slideshowTimer);
-        window.slideshowTimer = null;
-    }
-
-    const slides = mosaicContainer.querySelectorAll('.pm-slide');
-    if (slides.length === 0) return;
-
-    let currentIndex = 0;
-
-    // 3. ฟังก์ชันสลับ Slide แบบล้าง Class ทิ้งทั้งหมดก่อน
-    function changeSlide() {
-        // ถอด active ออกจากสไลด์ทั้งหมดก่อน
+        // 1. ล้างภาพ static เดิมของ hero-section เพื่อไม่ให้ภาพพื้นหลังเดิมซ้อนทะลุขึ้นมา
+        heroSection.style.backgroundImage = 'none';
+    
+        // 2. เคลียร์ Timer เก่าทิ้ง ป้องกันสคริปต์รันซ้ำแล้วเกิด Timer ซ้อนกันหลายตัว
+        if (window.slideshowTimer) {
+            clearInterval(window.slideshowTimer);
+            window.slideshowTimer = null;
+        }
+    
+        const slides = mosaicContainer.querySelectorAll('.pm-slide');
+        if (slides.length === 0) return;
+    
+        let currentIndex = 0;
+    
+        // 3. ฟังก์ชันสลับ Slide แบบล้าง Class ทิ้งทั้งหมดก่อน
+        function changeSlide() {
+            // ถอด active ออกจากสไลด์ทั้งหมดก่อน
+            slides.forEach(slide => slide.classList.remove('active'));
+    
+            // คำนวณ index ถัดไป
+            currentIndex = (currentIndex + 1) % slides.length;
+    
+            // ใส่ active ให้เฉพาะสไลด์ปัจจุบัน
+            slides[currentIndex].classList.add('active');
+        }
+    
+        // รีเซ็ตสไลด์แรก
         slides.forEach(slide => slide.classList.remove('active'));
-
-        // คำนวณ index ถัดไป
-        currentIndex = (currentIndex + 1) % slides.length;
-
-        // ใส่ active ให้เฉพาะสไลด์ปัจจุบัน
-        slides[currentIndex].classList.add('active');
-    }
-
-    // รีเซ็ตสไลด์แรก
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[0].classList.add('active');
-
-    // 4. เริ่มต้น Interval ใหม่
-    window.slideshowTimer = setInterval(changeSlide, 5000);
-}
-
-// ฟังก์ชันสำหรับฉีดภาพ Poster ลง Container (ล้าง DOM เก่าก่อนเสมอ)
-function setPosterImage(containerElement, imageUrl, altText = '') {
-    if (!containerElement) return;
-
-    // ล้างแท็ก <img> หรือ SVG เดิมที่ค้างอยู่ออกทั้งหมด
-    containerElement.innerHTML = '';
-
-    const img = document.createElement('img');
-    img.src = imageUrl;
-    img.alt = altText;
+        slides[0].classList.add('active');
     
-    containerElement.appendChild(img);
-}
+        // 4. เริ่มต้น Interval ใหม่
+        window.slideshowTimer = setInterval(changeSlide, 5000);
+    }
+    
+    // ฟังก์ชันสำหรับฉีดภาพ Poster ลง Container (ล้าง DOM เก่าก่อนเสมอ)
+    function setPosterImage(containerElement, imageUrl, altText = '') {
+        if (!containerElement) return;
+    
+        // ล้างแท็ก <img> หรือ SVG เดิมที่ค้างอยู่ออกทั้งหมด
+        containerElement.innerHTML = '';
+    
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = altText;
+        
+        containerElement.appendChild(img);
+    }
     
     /* ── 3. Movie card factory ──────────────────────────────────── */
     function createCard(movie) {
