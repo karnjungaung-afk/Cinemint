@@ -263,6 +263,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* Geolocation API — ดูโรงหนังใกล้คุณ */
+    // ==========================================
+// 🎬 YouTube API: หยุดเพลงเมื่อเล่น Trailer
+// ==========================================
+if (!window.YT) {
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+let ytPlayer;
+window.onYouTubeIframeAPIReady = function() {
+    const iframe = document.getElementById('trailer-video');
+    if (iframe) {
+        ytPlayer = new YT.Player('trailer-video', {
+            events: {
+                'onStateChange': (event) => {
+                    // เมื่อวิดีโอเริ่มเล่น (PLAYING = 1)
+                    if (event.data === YT.PlayerState.PLAYING) {
+                        if (window.bgMusic && !window.bgMusic.paused) {
+                            window.bgMusic.pause();
+                            localStorage.setItem('bgMusicPlaying', 'false');
+                            updateMusicButton(false);
+                        }
+                    }
+                }
+            }
+        });
+    }
+    
     const cinemaBtn = document.getElementById("find-cinema-btn");
     if (cinemaBtn) {
         cinemaBtn.addEventListener("click", () => {
@@ -299,34 +329,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
-// ==========================================
-// 🎬 YouTube API: หยุดเพลงเมื่อเล่น Trailer
-// ==========================================
-if (!window.YT) {
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-
-let ytPlayer;
-window.onYouTubeIframeAPIReady = function() {
-    const iframe = document.getElementById('trailer-video');
-    if (iframe) {
-        ytPlayer = new YT.Player('trailer-video', {
-            events: {
-                'onStateChange': (event) => {
-                    // เมื่อวิดีโอเริ่มเล่น (PLAYING = 1)
-                    if (event.data === YT.PlayerState.PLAYING) {
-                        if (window.bgMusic && !window.bgMusic.paused) {
-                            window.bgMusic.pause();
-                            localStorage.setItem('bgMusicPlaying', 'false');
-                            updateMusicButton(false);
-                        }
-                    }
-                }
-            }
-        });
-    }
-};
