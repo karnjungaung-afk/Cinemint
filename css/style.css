@@ -5,6 +5,40 @@
               + Noto Serif/Sans Thai (รองรับภาษาไทยในทั้งสองบทบาท)
    ============================================================ */
 /* Audio Floating Button */
+/* =========================================================
+   แก้ไขปัญหาภาพซ้อน (Slideshow & Poster Stack Fix)
+   ========================================================= */
+
+/* 1. จัดการ Slide ของ Hero Banner */
+.hero-poster-mosaic .pm-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* บังคับให้ Slide ปัจจุบันทึบ 100% บังภาพพื้นหลังเดิมมิด */
+.hero-poster-mosaic .pm-slide.active {
+    opacity: 1 !important;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+/* 2. ป้องกันแท็ก <img> ซ้อนทับกันใน Poster Frames */
+.poster-frame,
+.detail-poster-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+/* หากมีการ append <img> ใบใหม่เข้ามา ให้ซ่อนใบเก่าทิ้งทันที */
+.poster-frame img:not(:last-of-type),
+.detail-poster-frame img:not(:last-of-type) {
+    display: none !important;
+}
+
 .audio-btn {
     position: fixed;
     bottom: 24px;
