@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ── 2. Hero Poster Slideshow ────────────────────────────────
-    ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 6 วินาที
-    ─────────────────────────────────────────────────────────── */
+       ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 6 วินาที
+       ─────────────────────────────────────────────────────────── */
     function buildPosterSlideshow() {
         if (!heroSection || window.innerWidth <= 900) return;
 
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     buildPosterSlideshow();
-
+    
     /* ── 3. Movie card factory ──────────────────────────────────── */
     function createCard(movie) {
         var card = document.createElement("a");
