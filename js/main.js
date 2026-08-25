@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
        ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 6 วินาที
        ─────────────────────────────────────────────────────────── */
     function buildPosterSlideshow() {
+        // เพิ่มบรรทัดนี้ใน buildPosterSlideshow() เพื่อล้างภาพ static เดิมออก
+        if (heroSection) heroSection.style.backgroundImage = 'none';
+        
         if (!heroSection || window.innerWidth <= 900) return;
 
         var pool = movieDatabase
