@@ -4,6 +4,37 @@
    Typography: Fraunces (display/editorial) + Inter (body/UI)
               + Noto Serif/Sans Thai (รองรับภาษาไทยในทั้งสองบทบาท)
    ============================================================ */
+/* Audio Floating Button */
+.audio-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(18, 24, 21, 0.85);
+    border: 1px solid var(--border-soft, #26332d);
+    color: var(--mint-glow, #98ffdb);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    z-index: 998;
+    transition: all 0.25s ease;
+}
+
+.audio-btn:hover {
+    border-color: var(--mint-glow, #98ffdb);
+    box-shadow: 0 0 15px rgba(152, 255, 219, 0.25);
+    transform: scale(1.08);
+}
+
+.audio-btn.playing {
+    border-color: var(--mint-glow, #98ffdb);
+    box-shadow: 0 0 12px rgba(152, 255, 219, 0.35);
+}
 
 :root {
     --bg-main: #0a0e0c;
