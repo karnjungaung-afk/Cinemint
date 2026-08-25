@@ -95,6 +95,14 @@
             <span style="font-size:0.72rem; color:#3d4e45;">ข้อมูลภาพยนตร์ผ่านการตรวจสอบข้อเท็จจริงก่อนนำมาใช้ &nbsp;•&nbsp; โปสเตอร์จริงจาก TMDB (ต้องตั้งค่า API Key ใน js/tmdb-images.js)</span>
         </div>
     </footer>
+    <!-- Background Audio + Mute/Play Toggle Button -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="URL_ไฟล์เสียง_หรือ_ambient.mp3" type="audio/mp3">
+    </audio>
+    
+    <button id="audio-toggle-btn" class="audio-btn" title="เปิด/ปิดเสียงบรรยากาศ">
+        <span id="audio-icon">🔇</span>
+    </button>
 
     <!-- โหลดสคริปต์ตามลำดับ: ข้อมูล → TMDB → ค้นหา → หน้าแรก -->
     <script src="js/movies-data.js"></script>
