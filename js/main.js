@@ -41,108 +41,63 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ── 2. Hero Poster Slideshow ────────────────────────────────
        ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 6 วินาที
        ─────────────────────────────────────────────────────────── */
-    function buildPosterSlideshow() {
-        // เพิ่มบรรทัดนี้ใน buildPosterSlideshow() เพื่อล้างภาพ static เดิมออก
-        if (heroSection) heroSection.style.backgroundImage = 'none';
-        
-        if (!heroSection || window.innerWidth <= 900) return;
+    // =========================================================
+// แก้ไขฟังก์ชัน Hero Slideshow และ Render ภาพ
+// =========================================================
 
-        var pool = movieDatabase
-            .filter(function(m){ return !!m.backdrop; })
-            .sort(function(){ return Math.random() - 0.5; });
+function buildPosterSlideshow(posters) {
+    const heroSection = document.getElementById('hero-section');
+    const mosaicContainer = document.querySelector('.hero-poster-mosaic');
+    
+    if (!heroSection || !mosaicContainer || !posters || !posters.length) return;
 
-        if (pool.length < 2) return;
+    // 1. ล้างภาพ static เดิมของ hero-section เพื่อไม่ให้ภาพพื้นหลังเดิมซ้อนทะลุขึ้นมา
+    heroSection.style.backgroundImage = 'none';
 
-        var poolIdx = 0;
-
-        var container = document.createElement("div");
-        container.className = "hero-poster-mosaic";
-        container.setAttribute("aria-hidden", "true");
-
-        var imgA = document.createElement("img");
-        var imgB = document.createElement("img");
-        imgA.className = "pm-slide";
-        imgB.className = "pm-slide";
-        imgA.alt = ""; imgB.alt = "";
-        imgA.draggable = false; imgB.draggable = false;
-        container.appendChild(imgA);
-        container.appendChild(imgB);
-
-        var overlay = heroSection.querySelector(".hero-overlay");
-        heroSection.insertBefore(container, overlay || heroSection.firstChild);
-
-        var activeLayer = 0;
-        var layers = [imgA, imgB];
-        var consecutiveFails = 0;
-        var MAX_CONSECUTIVE_FAILS = pool.length;
-
-        var isTransitioning = false;
-
-        function preload(src) {
-            return new Promise(function(resolve) {
-                var probe = new Image();
-                var timer = setTimeout(function(){ resolve(null); }, 8000);
-                probe.onload  = function(){ clearTimeout(timer); resolve(src); };
-                probe.onerror = function(){ clearTimeout(timer); resolve(null); };
-                probe.src = src;
-            });
-        }
-
-        function nextSrc() {
-            var movie = pool[poolIdx % pool.length];
-            poolIdx++;
-            return movie.backdrop;
-        }
-
-        function applySlide(src) {
-            return new Promise(function(resolveSlide) {
-                var next = activeLayer === 0 ? 1 : 0;
-                layers[next].src = src;
-
-                // --- [จุดที่เพิ่มเข้าไปเพื่อแก้บั๊กภาพซ้อน] ---
-                // บังคับให้ภาพใหม่ (next) ลอยขึ้นมาอยู่เลเยอร์บนสุดเสมอ (z-index: 2)
-                // เพื่อให้ภาพค่อยๆ สว่างขึ้นมาทับภาพเก่าได้อย่างเนียนตา
-                layers[next].style.zIndex = "2";
-                layers[activeLayer].style.zIndex = "1";
-                // ------------------------------------------
-
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(function() {
-                        layers[next].classList.add("active");
-                        layers[activeLayer].classList.remove("active");
-                        activeLayer = next;
-                        // รอให้ transition ของ opacity (1.5s ใน CSS) จบก่อนปลดล็อค
-                        setTimeout(resolveSlide, 1550);
-                    });
-                });
-            });
-        }
-
-        function showNext() {
-            if (isTransitioning) return; 
-            if (consecutiveFails >= MAX_CONSECUTIVE_FAILS) return;
-
-            isTransitioning = true;
-            var src = nextSrc();
-            preload(src).then(function(loaded) {
-                if (!loaded) {
-                    consecutiveFails++;
-                    isTransitioning = false;
-                    if (consecutiveFails < MAX_CONSECUTIVE_FAILS) showNext();
-                    return;
-                }
-                consecutiveFails = 0;
-                applySlide(loaded).then(function() {
-                    isTransitioning = false;
-                });
-            });
-        }
-
-        showNext();
-        setInterval(showNext, 6000);
+    // 2. เคลียร์ Timer เก่าทิ้ง ป้องกันสคริปต์รันซ้ำแล้วเกิด Timer ซ้อนกันหลายตัว
+    if (window.slideshowTimer) {
+        clearInterval(window.slideshowTimer);
+        window.slideshowTimer = null;
     }
 
-    buildPosterSlideshow();
+    const slides = mosaicContainer.querySelectorAll('.pm-slide');
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+
+    // 3. ฟังก์ชันสลับ Slide แบบล้าง Class ทิ้งทั้งหมดก่อน
+    function changeSlide() {
+        // ถอด active ออกจากสไลด์ทั้งหมดก่อน
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // คำนวณ index ถัดไป
+        currentIndex = (currentIndex + 1) % slides.length;
+
+        // ใส่ active ให้เฉพาะสไลด์ปัจจุบัน
+        slides[currentIndex].classList.add('active');
+    }
+
+    // รีเซ็ตสไลด์แรก
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[0].classList.add('active');
+
+    // 4. เริ่มต้น Interval ใหม่
+    window.slideshowTimer = setInterval(changeSlide, 5000);
+}
+
+// ฟังก์ชันสำหรับฉีดภาพ Poster ลง Container (ล้าง DOM เก่าก่อนเสมอ)
+function setPosterImage(containerElement, imageUrl, altText = '') {
+    if (!containerElement) return;
+
+    // ล้างแท็ก <img> หรือ SVG เดิมที่ค้างอยู่ออกทั้งหมด
+    containerElement.innerHTML = '';
+
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = altText;
+    
+    containerElement.appendChild(img);
+}
     
     /* ── 3. Movie card factory ──────────────────────────────────── */
     function createCard(movie) {
