@@ -280,6 +280,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     updateBadge();
     document.addEventListener("watchlist-changed", updateBadge);
+
+    //audio
+    const audio = document.getElementById('bg-audio');
+    const audioBtn = document.getElementById('audio-toggle-btn');
+    const audioIcon = document.getElementById('audio-icon');
+
+    if (!audio || !audioBtn) return;
+
+    // ปรับระดับเสียงเริ่มต้น (0.0 ถึง 1.0)
+    audio.volume = 0.3; 
+
+    audioBtn.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play().then(() => {
+                audioIcon.textContent = '🔊';
+                audioBtn.classList.add('playing');
+            }).catch(err => {
+                console.warn('Audio playback prevented:', err);
+            });
+        } else {
+            audio.pause();
+            audioIcon.textContent = '🔇';
+            audioBtn.classList.remove('playing');
+        }
+    });
 });
 
 // =========================================================
