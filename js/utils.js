@@ -288,8 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!audio || !audioBtn) return;
 
-    // ตั้งความดัง 25% เพื่อไม่ให้กลบเสียงอื่น
-    audio.volume = 0.25; 
+    audio.volume = 0.3;
 
     audioBtn.addEventListener('click', () => {
         if (audio.paused) {
@@ -297,7 +296,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 audioIcon.textContent = '🔊';
                 audioBtn.classList.add('playing');
             }).catch(err => {
-                console.warn('ไม่สามารถเล่นไฟล์เสียงได้ Check path:', err);
+                console.error('ไม่สามารถเล่นเสียงได้:', err);
+                alert('เกิดข้อผิดพลาดในการโหลดไฟล์เสียง กรุณาตรวจสอบ Console (F12)');
             });
         } else {
             audio.pause();
