@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!audio || !audioBtn) return;
 
-    audio.volume = 0.3;
+    audio.volume = 0.5;
 
     audioBtn.addEventListener('click', () => {
         if (audio.paused) {
