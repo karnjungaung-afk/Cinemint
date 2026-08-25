@@ -682,7 +682,7 @@ a.genre-tag-link:hover { border-color: var(--border-mint); color: var(--mint-glo
 
 .detail-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* สลับอัตราส่วนให้ฝั่งซ้ายเป็น 1fr และฝั่งขวาเป็น 2fr */
+    grid-template-columns: 2fr 1fr; /* สลับอัตราส่วนให้ฝั่งซ้ายเป็น 1fr และฝั่งขวาเป็น 2fr */
     gap: 36px;
     padding: 44px 5% 90px;
     align-items: start;
