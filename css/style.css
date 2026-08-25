@@ -362,7 +362,7 @@ nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
 
 @media (max-width: 900px) { .hero-poster-mosaic { display: none; } }
 .hero-content { position: relative; z-index: 10; max-width: 640px; animation: heroIn 0.7s var(--ease-premium); }
-@keyframes heroIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes heroIn { from { opacity: 1; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
 .hero-eyebrow {
     color: var(--mint-glow);
