@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const movie    = movieDatabase.find(m => m.id === movieId);
     const pageContainer = document.getElementById("detail-page-content");
 
+    // ตัวอย่างการใส่ src ของ iframe ตอน render หน้าหนัง
+    trailerIframe.src = `${movie.trailerEmbed}?enablejsapi=1`;
+    trailerIframe.id = "trailer-video";
+
     if (!movie) {
         pageContainer.innerHTML = `
             <div class="not-found">
