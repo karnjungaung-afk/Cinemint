@@ -39,16 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ── 2. Hero Poster Slideshow ────────────────────────────────
-       ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 5 วินาที
-       ─────────────────────────────────────────────────────────── */
+    ภาพ backdrop เดี่ยวขนาดใหญ่ฝั่งขวา สุ่มสลับทุก 6 วินาที
+    ─────────────────────────────────────────────────────────── */
     function buildPosterSlideshow() {
         if (!heroSection || window.innerWidth <= 900) return;
 
         var pool = movieDatabase
-            .filter(function (m) { return !!m.backdrop; })
-            .sort(function () { return Math.random() - 0.5; });
+            .filter(function(m){ return !!m.backdrop; })
+            .sort(function(){ return Math.random() - 0.5; });
 
-        // ต้องมีอย่างน้อย 2 ภาพจึงจะสลับได้อย่างมีความหมาย
         if (pool.length < 2) return;
 
         var poolIdx = 0;
@@ -74,17 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
         var consecutiveFails = 0;
         var MAX_CONSECUTIVE_FAILS = pool.length;
 
-        // ล็อคป้องกัน race condition: ถ้ากำลังเปลี่ยนภาพอยู่ (preload หรือ transition
-        // ยังไม่เสร็จ) จะไม่ยอมให้เริ่มรอบใหม่ซ้อนขึ้นมา ซึ่งเป็นสาเหตุที่ทำให้
-        // เกิดภาพซ้อนทับกัน 2 ภาพพร้อมกันเมื่อเน็ตช้าหรือ interval ยิงซ้อน
         var isTransitioning = false;
 
         function preload(src) {
-            return new Promise(function (resolve) {
+            return new Promise(function(resolve) {
                 var probe = new Image();
-                var timer = setTimeout(function () { resolve(null); }, 8000);
-                probe.onload = function () { clearTimeout(timer); resolve(src); };
-                probe.onerror = function () { clearTimeout(timer); resolve(null); };
+                var timer = setTimeout(function(){ resolve(null); }, 8000);
+                probe.onload  = function(){ clearTimeout(timer); resolve(src); };
+                probe.onerror = function(){ clearTimeout(timer); resolve(null); };
                 probe.src = src;
             });
         }
@@ -96,11 +92,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function applySlide(src) {
-            return new Promise(function (resolveSlide) {
+            return new Promise(function(resolveSlide) {
                 var next = activeLayer === 0 ? 1 : 0;
                 layers[next].src = src;
-                requestAnimationFrame(function () {
-                    requestAnimationFrame(function () {
+
+                // --- [จุดที่เพิ่มเข้าไปเพื่อแก้บั๊กภาพซ้อน] ---
+                // บังคับให้ภาพใหม่ (next) ลอยขึ้นมาอยู่เลเยอร์บนสุดเสมอ (z-index: 2)
+                // เพื่อให้ภาพค่อยๆ สว่างขึ้นมาทับภาพเก่าได้อย่างเนียนตา
+                layers[next].style.zIndex = "2";
+                layers[activeLayer].style.zIndex = "1";
+                // ------------------------------------------
+
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
                         layers[next].classList.add("active");
                         layers[activeLayer].classList.remove("active");
                         activeLayer = next;
@@ -112,12 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function showNext() {
-            if (isTransitioning) return; // กันการเรียกซ้อนขณะกำลังเปลี่ยนภาพอยู่
+            if (isTransitioning) return; 
             if (consecutiveFails >= MAX_CONSECUTIVE_FAILS) return;
 
             isTransitioning = true;
             var src = nextSrc();
-            preload(src).then(function (loaded) {
+            preload(src).then(function(loaded) {
                 if (!loaded) {
                     consecutiveFails++;
                     isTransitioning = false;
@@ -125,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
                 consecutiveFails = 0;
-                applySlide(loaded).then(function () {
+                applySlide(loaded).then(function() {
                     isTransitioning = false;
                 });
             });
