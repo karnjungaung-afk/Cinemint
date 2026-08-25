@@ -288,8 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!audio || !audioBtn) return;
 
-    // ปรับระดับเสียงเริ่มต้น (0.0 ถึง 1.0)
-    audio.volume = 0.3; 
+    audio.volume = 0.3;
 
     audioBtn.addEventListener('click', () => {
         if (audio.paused) {
@@ -297,7 +296,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 audioIcon.textContent = '🔊';
                 audioBtn.classList.add('playing');
             }).catch(err => {
-                console.warn('Audio playback prevented:', err);
+                console.error('ไม่สามารถเล่นเสียงได้:', err);
+                alert('เกิดข้อผิดพลาดในการโหลดไฟล์เสียง กรุณาตรวจสอบ Console (F12)');
             });
         } else {
             audio.pause();
