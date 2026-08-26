@@ -9,6 +9,18 @@
    แก้ไขปัญหาภาพซ้อน (Slideshow & Poster Stack Fix)
    ========================================================= */
 
+.fb-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: opacity 0.2s ease;
+}
+
+.fb-link:hover .fb-icon {
+    opacity: 0.8;
+}
+
 /* 1. จัดการ Slide ของ Hero Banner */
 .hero-poster-mosaic .pm-slide {
     position: absolute;
