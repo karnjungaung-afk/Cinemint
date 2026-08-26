@@ -8,6 +8,26 @@ const TMDB = "https://image.tmdb.org/t/p/";
 const movieDatabase = [
     // --------------------------- new  ----------------------------
     {
+        id: "pinocchio-unstrung", 
+        title: "Pinocchio: Unstrung (พินอคคิโอ หุ่นไม้สายเชือด)", 
+        year: 2026, 
+        duration: "88 นาที",
+        director: "Rhys Frake-Waterfield",
+        cast: ["Cameron Bell", "Jessica Balmer", "Jack Kelly", "Richard Brake"],
+        genres: ["Horror", "Thriller"], 
+        rating: 58,
+        releaseDate: "15 ม.ค. 2026", 
+        status: "ฉายแล้ว", 
+        tmdbId: 1238910,
+        poster: TMDB+"https://image.tmdb.org/t/p/original/eUJXk3bTvLBi5Zcb0BCedZU7lVL.jpg",
+        backdrop: TMDB+"https://image.tmdb.org/t/p/original/dNKFETDDujxm2PUN873Jwiw5VML.jpg",
+        trailerEmbed: "https://www.youtube.com/embed/KoFn3gHSrno?si=ivV6sXpDTZGFc1Q9",
+        synopsis: "การตีความนิทานคลาสสิกสู่ความสยองขวัญสายเลือดสาด เมื่อหุ่นไม้ 'พินอคคิโอ' ฟื้นคืนชีพขึ้นมาด้วยจิตวิญญาณแห่งความเคียดแค้น มันออกไล่ล่าผู้คนในเมืองอย่างบ้าคลั่งเพื่อชำแหละและขโมยชิ้นส่วนผิวหนังของมนุษย์มาประกอบร่าง เพื่อทำให้ความปรารถนาในการเป็น 'เด็กชายจริงๆ' กลายเป็นจริง",
+        aiReview: "ภาพยนตร์สแลชเชอร์จากจักรวาลนิทานสายดาร์ก (Twisted Childhood Universe) ที่เน้นความโหดและฉากสังหารแบบไม่ประนีประนอม การออกแบบหน้าตาของหุ่นไม้ทำออกมาได้หลอนติดตา แม้ด้านบทและการพัฒนาตัวละครจะค่อนข้างแบนราบตามสูตรสำเร็จของหนังเกรดบี แต่ก็ตอบสนองความบันเทิงสำหรับคอหนังสยองขวัญสายเลือดสาด (Gore) ได้อย่างเต็มที่",
+        pros: ["การออกแบบหุ่นไม้พินอคคิโอมีความหลอนและชวนขนลุก", "ฉากสังหาร (Kill Scenes) โหด ดิบ และใช้ Practical Effects ได้อย่างสะใจ", "คอนเซปต์การบิดเบือนนิทานเด็กเป็นหนังเชือดทำได้แปลกตา"],
+        cons: ["บทภาพยนตร์เบาบางและดำเนินเรื่องตามสูตรสำเร็จเดิมๆ ของหนัง Slasher", "การตัดสินใจของตัวละครมนุษย์หลายตัวขาดความสมเหตุสมผล"]
+    },
+    {
         id: "the-super-mario-galaxy-movie", 
         title: "The Super Mario Galaxy Movie (เดอะ ซูเปอร์ มาริโอ กาแล็คซี่ มูฟวี่)", 
         year: 2026, 
