@@ -9,6 +9,11 @@
    แก้ไขปัญหาภาพซ้อน (Slideshow & Poster Stack Fix)
    ========================================================= */
 
+.fb-icon {
+    width: 28px;    /* ปรับความกว้างตามต้องการ */
+    height: auto;   /* ปรับความสูงอัตโนมัติคงสัดส่วน */
+}
+
 /* 1. จัดการ Slide ของ Hero Banner */
 .hero-poster-mosaic .pm-slide {
     position: absolute;
