@@ -9,31 +9,6 @@
    แก้ไขปัญหาภาพซ้อน (Slideshow & Poster Stack Fix)
    ========================================================= */
 
-/* ลิงก์หุ้มไอคอน: จัดระยะห่างและการตอบสนองเมื่อ Hover */
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;      /* ระยะห่างจากเมนู "นโยบายความเป็นส่วนตัว" ด้านบน */
-    text-decoration: none;
-    opacity: 0.7;          /* ปรับความสว่างให้กลมกลืนกับข้อความ Footer */
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.social-link:hover {
-    opacity: 1;            /* สว่างขึ้นเมื่อเอาเมาส์ไปชี้ */
-    transform: translateY(-2px); /* ลอยขึ้นเล็กน้อย */
-}
-
-/* ตัวรูปภาพโลโก้: คุมขนาดให้พอดีกับฟอนต์ Footer */
-.social-icon {
-    width: 20px;           /* ปรับขนาดความกว้างตามต้องการ (แนะนำ 18px - 24px) */
-    height: 20px;          /* ปรับความสูงให้เท่ากัน */
-    max-width: none;       /* ป้องกัน CSS Global บังคับขยายรูป */
-    object-fit: contain;   /* ป้องกันภาพเบี้ยว */
-    display: block;        /* ลบช่องว่างส่วนเกินใต้รูปภาพ */
-}
-
 /* 1. จัดการ Slide ของ Hero Banner */
 .hero-poster-mosaic .pm-slide {
     position: absolute;
