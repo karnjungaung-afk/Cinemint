@@ -10,8 +10,12 @@
    ========================================================= */
 
 .fb-icon {
-    width: 28px;   
-    height: auto;  
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;   
+    height: 40px;  
     transition: opacity 0.2s ease;
 }
 
