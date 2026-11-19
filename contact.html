@@ -148,35 +148,45 @@
 <script src="js/tmdb-images.js"></script>
 <script src="js/search.js"></script>
 <script>
-// Contact form — client-side validation + success state (ไม่มี backend)
+// Contact form — prepares a message in the visitor's own email application.
+// CineMint V1 has no form backend, so never show a false "sent" state.
 document.getElementById("cf-submit").addEventListener("click", () => {
-    const name    = document.getElementById("cf-name").value.trim();
-    const email   = document.getElementById("cf-email").value.trim();
+    const name = document.getElementById("cf-name").value.trim();
+    const email = document.getElementById("cf-email").value.trim();
+    const subjectSelect = document.getElementById("cf-subject");
+    const subjectLabel = subjectSelect.selectedOptions[0]?.textContent.trim();
     const message = document.getElementById("cf-message").value.trim();
 
     if (!name || !email || !message) {
         const missing = [];
-        if (!name)    missing.push("ชื่อ");
-        if (!email)   missing.push("อีเมล");
+        if (!name) missing.push("ชื่อ");
+        if (!email) missing.push("อีเมล");
         if (!message) missing.push("ข้อความ");
-        alert(`กรุณากรอกข้อมูลให้ครบ: ${missing.join(', ')}`);
+        alert(`กรุณากรอกข้อมูลให้ครบ: ${missing.join(", ")}`);
         return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
         alert("รูปแบบอีเมลไม่ถูกต้อง");
         return;
     }
 
-    // ซ่อนฟอร์ม แสดง success
-    ["cf-name","cf-email","cf-subject","cf-message"].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.closest('.form-group') && (el.closest('.form-group').style.display = 'none');
-    });
-    document.querySelector(".form-row").style.display = "none";
-    document.querySelector(".form-submit").style.display = "none";
-    document.getElementById("form-success").style.display = "block";
+    const subject = `[CineMint] ${subjectLabel || "ข้อความติดต่อ"}`;
+    const body = [
+        `ชื่อ: ${name}`,
+        `อีเมลสำหรับติดต่อกลับ: ${email}`,
+        "",
+        message
+    ].join("\\n");
+    const mailto = `mailto:karnjungaung@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+
+    const status = document.getElementById("form-success");
+    status.textContent = "เราเตรียมข้อความไว้ในโปรแกรมอีเมลแล้ว กรุณาตรวจสอบและกด Send ในโปรแกรมอีเมลของคุณ ข้อความจะยังไม่ถูกส่งจนกว่าคุณจะกดส่ง";
+    status.style.display = "block";
 });
-</script>
+
     <script src="js/mintbot-chat.js"></script>
 </body>
 </html>
