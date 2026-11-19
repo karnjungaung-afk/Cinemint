@@ -21,7 +21,7 @@ assert.equal(movies.length, 83, "V1 migration must preserve all 83 movie records
 const ids = movies.map((movie) => movie.id);
 assert.equal(new Set(ids).size, ids.length, "movie IDs must be unique");
 
-const imageUrlPattern = /^https:\/\/image\.tmdb\.org\/t\/p\/(?:original|w\\d{1,4})\/.+/;
+const imageUrlPattern = /^https:\/\/image\.tmdb\.org\/t\/p\/(?:original|w\d{1,4})\/.+/;
 for (const movie of movies) {
   assert.ok(movie.id && typeof movie.id === "string", "every movie needs a stable ID");
   assert.ok(movie.title && typeof movie.title === "string", `${movie.id}: title is required`);
