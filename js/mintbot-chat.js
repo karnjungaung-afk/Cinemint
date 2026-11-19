@@ -314,8 +314,8 @@
     function formatText(text) {
         // Escape untrusted text first, then allow only the small Markdown subset.
         return escapeHtml(text)
-            .replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>')
-            .replace(/\\n/g, '<br>');
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\n/g, '<br>');
     }
 
     function buildWidget() {
