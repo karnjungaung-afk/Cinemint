@@ -39,31 +39,33 @@
     <p class="lead">CineMint ให้ความสำคัญกับความเป็นส่วนตัวของผู้ใช้ทุกคน นโยบายนี้อธิบายว่าเราเก็บข้อมูลอะไร ใช้อย่างไร และคุณมีสิทธิ์อะไรบ้าง</p>
 
     <div class="privacy-highlight">
-        <strong>อัปเดตล่าสุด:</strong> 24 มิถุนายน 2026 &nbsp;•&nbsp;
-        <strong>มีผลบังคับ:</strong> 24 มิถุนายน 2026
+        <strong>อัปเดตล่าสุด:</strong> 19 พฤศจิกายน 2026 &nbsp;•&nbsp;
+        <strong>มีผลบังคับ:</strong> 19 พฤศจิกายน 2026
     </div>
 
     <h2><i class="fa-solid fa-database" style="color:var(--mint-glow);font-size:1rem;"></i> 1. ข้อมูลที่เราเก็บ</h2>
     <p>CineMint เป็นเว็บไซต์ฝั่ง Client-side ล้วนๆ ที่ทำงานในเบราว์เซอร์ของคุณ เราไม่มีเซิร์ฟเวอร์ที่รับและจัดเก็บข้อมูลส่วนตัวของผู้ใช้ อย่างไรก็ตาม ข้อมูลบางส่วนอาจถูกเก็บในอุปกรณ์ของคุณเอง ได้แก่</p>
     <ul>
-        <li><strong>localStorage:</strong> เก็บการตั้งค่า TMDB API Key (ถ้าคุณกรอก) และแคชข้อมูลภาพยนตร์เพื่อลดการเรียก API ซ้ำ ข้อมูลเหล่านี้อยู่บนอุปกรณ์ของคุณเท่านั้น ไม่ถูกส่งมาที่เรา</li>
-        <li><strong>แบบฟอร์มติดต่อ:</strong> หากคุณกรอกฟอร์มติดต่อ ข้อมูลจะถูกประมวลผลใน JavaScript เพื่อตรวจสอบรูปแบบเท่านั้น ไม่มีการส่งข้อมูลไปที่เซิร์ฟเวอร์ใดๆ ในเวอร์ชันสาธิตนี้</li>
+        <li><strong>localStorage:</strong> ใช้เก็บรายการ Watchlist และแคชข้อมูลภาพยนตร์จากบริการภายนอกไว้ในเบราว์เซอร์ของคุณ ข้อมูลเหล่านี้ไม่ใช่บัญชีผู้ใช้และจะไม่ซิงก์ข้ามอุปกรณ์</li>
+        <li><strong>sessionStorage:</strong> ใช้เก็บประวัติการสนทนา MintBot และสถานะการใช้งานบางอย่างชั่วคราวใน Session ของเบราว์เซอร์</li>
+        <li><strong>แบบฟอร์มติดต่อ:</strong> เว็บไซต์ตรวจสอบข้อมูลและเปิดโปรแกรมอีเมลของคุณด้วยลิงก์ mailto โดยเตรียมผู้รับ หัวข้อ และข้อความไว้ให้ CineMint จะไม่ส่งหรือจัดเก็บข้อความผ่านเซิร์ฟเวอร์ของเว็บไซต์ ผู้ให้บริการอีเมลของคุณจะประมวลผลข้อมูลเมื่อคุณกดส่ง</li>
     </ul>
 
     <h2><i class="fa-solid fa-share-nodes" style="color:var(--mint-glow);font-size:1rem;"></i> 2. บริการของบุคคลที่สาม</h2>
     <p>CineMint ใช้บริการของบุคคลที่สามดังต่อไปนี้ ซึ่งมีนโยบายความเป็นส่วนตัวของตนเอง</p>
     <ul>
-        <li><strong>The Movie Database (TMDB):</strong> ใช้สำหรับดึงข้อมูลโปสเตอร์และข้อมูลภาพยนตร์ เมื่อเบราว์เซอร์โหลดรูปภาพจาก <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;">image.tmdb.org</code> TMDB อาจบันทึก IP address ของคุณตามนโยบายของพวกเขา</li>
+        <li><strong>The Movie Database (TMDB):</strong> ภาพโปสเตอร์และ Backdrop บางส่วนโหลดโดยตรงจาก <code style="background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;">image.tmdb.org</code> ผู้ให้บริการอาจได้รับข้อมูลคำขอ เช่น IP address ตามนโยบายของตน ขณะนี้ V1 ใช้ URL รูปภาพที่จัดเก็บไว้ในข้อมูลภาพยนตร์เป็นหลัก</li>
         <li><strong>YouTube (Google):</strong> ใช้สำหรับฝังตัวอย่างหนัง เมื่อโหลด iframe ของ YouTube, Google อาจวาง cookie ในเบราว์เซอร์ตามนโยบายของ Google</li>
         <li><strong>Google Fonts:</strong> ใช้โหลดฟอนต์ Fraunces และ Inter จาก Google Fonts CDN ซึ่ง Google อาจบันทึก request log</li>
         <li><strong>Font Awesome:</strong> ใช้โหลด icon จาก Cloudflare CDN</li>
+        <li><strong>Pixabay:</strong> ใช้โหลดเสียงบรรยากาศเมื่อผู้ใช้เลือกเปิดเสียงบนเว็บไซต์</li>
     </ul>
 
     <h2><i class="fa-solid fa-cookie-bite" style="color:var(--mint-glow);font-size:1rem;"></i> 3. คุกกี้และ Local Storage</h2>
     <div class="privacy-highlight">
-        CineMint ไม่วาง <strong>คุกกี้ติดตาม (Tracking Cookies)</strong> ของตัวเองเลย ข้อมูลใน localStorage ที่เราสร้างขึ้นมีไว้เพื่อการทำงานของเว็บไซต์เท่านั้น ได้แก่ แคช TMDB API และการตั้งค่า
+        CineMint ไม่ได้สร้างคุกกี้ติดตามของตนเอง ข้อมูลใน localStorage ใช้สำหรับฟีเจอร์อย่าง Watchlist และแคช ส่วน sessionStorage ใช้เก็บประวัติ MintBot ชั่วคราว การฝังบริการจากบุคคลที่สาม เช่น YouTube อาจใช้คุกกี้หรือเทคโนโลยีของผู้ให้บริการนั้นตามนโยบายของเขา
     </div>
-    <p>คุณสามารถลบข้อมูล localStorage ได้ตลอดเวลาผ่าน Developer Tools ของเบราว์เซอร์ (F12 → Application → Local Storage)</p>
+    <p>คุณสามารถลบข้อมูล localStorage และ sessionStorage ได้ผ่านการตั้งค่า Site Data ของเบราว์เซอร์ หรือเปิด Developer Tools (F12 → Application → Storage)</p>
 
     <h2><i class="fa-solid fa-shield-halved" style="color:var(--mint-glow);font-size:1rem;"></i> 4. ความปลอดภัยของข้อมูล</h2>
     <p>เนื่องจาก CineMint ไม่มีเซิร์ฟเวอร์รับข้อมูล ความเสี่ยงจากการรั่วไหลของข้อมูลจากฝั่งเราจึงมีน้อยมาก อย่างไรก็ตาม เราแนะนำให้</p>
@@ -79,7 +81,7 @@
     <h2><i class="fa-solid fa-user-check" style="color:var(--mint-glow);font-size:1rem;"></i> 6. สิทธิ์ของคุณ</h2>
     <p>เนื่องจากเราไม่ได้เก็บข้อมูลส่วนตัวของคุณบนเซิร์ฟเวอร์ คุณจึงมีสิทธิ์ควบคุมข้อมูลของตนเองได้อย่างสมบูรณ์</p>
     <ul>
-        <li><strong>สิทธิ์เข้าถึง:</strong> ดูข้อมูลที่เก็บใน localStorage ผ่าน Developer Tools</li>
+        <li><strong>สิทธิ์เข้าถึง:</strong> ตรวจสอบข้อมูลที่จัดเก็บใน Local Storage และ Session Storage ของเบราว์เซอร์</li>
         <li><strong>สิทธิ์ลบ:</strong> ลบข้อมูลทั้งหมดได้ผ่าน Clear Site Data ในเบราว์เซอร์</li>
         <li><strong>สิทธิ์คัดค้าน:</strong> ปิด YouTube iframe หรือบล็อก Google Fonts ผ่านส่วนขยายของเบราว์เซอร์</li>
     </ul>
