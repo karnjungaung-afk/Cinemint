@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="not-found-icon">🎬</div>
                 <h2>ไม่พบข้อมูลภาพยนตร์</h2>
                 <p style="color:var(--text-gray);margin-bottom:28px;">
-                    รหัส "${movieId || ''}" ไม่มีอยู่ในฐานข้อมูล CineMint
+                    รหัส "<span id="requested-movie-id"></span>" ไม่มีอยู่ในฐานข้อมูล CineMint
                 </p>
                 <a href="index.html" class="btn-mint">← กลับหน้าหลัก</a>
             </div>`;
+        const requestedId = pageContainer.querySelector("#requested-movie-id");
+        if (requestedId) requestedId.textContent = movieId || "";
         return;
     }
 
@@ -130,8 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="detail-rating-block">
                         <div class="rating-leaf lg"><span>${movie.rating}</span></div>
                         <div class="label">
-                            <strong>MintBot AI</strong>
-                            <span>วิเคราะห์โดย AI อย่างเป็นกลาง</span>
+                            <strong>CineMint Score</strong>
+                            <span>คะแนนและบทวิเคราะห์จากฐานข้อมูล CineMint</span>
                         </div>
                         <button type="button"
                             class="watchlist-toggle-btn ${Watchlist.has(movie.id) ? 'active' : ''}"
@@ -152,10 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${buildTrailer(movie)}
 
                 <div class="ai-review-box">
-                    <h3>🤖 รีวิวโดย MintBot AI</h3>
+                    <h3>บทวิเคราะห์ภาพยนตร์</h3>
                     <blockquote class="ai-review-quote">
                         <p>${movie.aiReview}</p>
-                        <cite>— MintBot AI, วิเคราะห์อย่างเป็นกลาง</cite>
+                        <cite>— CineMint Editorial Review</cite>
                     </blockquote>
                 </div>
 

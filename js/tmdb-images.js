@@ -7,7 +7,8 @@
 // 3. ใส่ API Key ในช่องด้านล่าง แล้วบันทึก — รูปภาพจะโหลดทันที
 // ============================================================================
 
-const TMDB_KEY = ""; // <-- ใส่ API Key ตรงนี้ เช่น "a1b2c3d4e5f6..."
+// V1 runs as public browser code. Do not place private credentials in this file.
+const TMDB_KEY = ""; // Keep empty in the public static build; use a server-side proxy in V2.
 
 // TMDB CDN: public, ไม่ต้องใช้ key สำหรับโหลดรูป (ต้องการ key เพื่อดึง path เท่านั้น)
 const TMDB_IMG = "https://image.tmdb.org/t/p/";
@@ -69,10 +70,9 @@ const TMDBImages = (() => {
     // โหลดรูปจาก TMDB API แล้ว apply กับทุก element ในหน้า
     async function hydrateAll(root) {
         const apiKey = (TMDB_KEY || "").trim();
-        if (!apiKey) {
-            showSetupHint();
-            return;
-        }
+        // V1 has no server-side credential proxy. Use the verified image URLs
+        // already stored in movies-data.js instead of prompting users to expose a key.
+        if (!apiKey) return;
 
         const scope = root || document;
         const cache = loadCache();
@@ -104,39 +104,6 @@ const TMDBImages = (() => {
         }));
 
         if (changed) saveCache(updated);
-    }
-
-    // แสดง banner บอกให้ผู้ใช้ใส่ API Key (ครั้งเดียว ไม่ซ้ำ)
-    let hintShown = false;
-    function showSetupHint() {
-        if (hintShown || localStorage.getItem("cinemint_hint_closed")) return;
-        hintShown = true;
-        const banner = document.createElement("div");
-        banner.id = "tmdb-hint";
-        banner.innerHTML = `
-            <div style="
-                position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
-                background:#121815; border:1px solid rgba(152,255,219,0.3);
-                border-radius:14px; padding:16px 22px;
-                box-shadow:0 8px 32px rgba(0,0,0,0.5), 0 0 24px rgba(152,255,219,0.12);
-                display:flex; align-items:center; gap:16px; z-index:9999;
-                max-width:90vw; width:540px; font-family:'Inter','Noto Sans Thai',sans-serif;">
-                <span style="font-size:1.5rem;">🍃</span>
-                <div style="flex:1; min-width:0;">
-                    <div style="color:#fff; font-weight:700; font-size:0.93rem; margin-bottom:4px;">
-                        ต้องการโปสเตอร์หนังจริง?
-                    </div>
-                    <div style="color:#a0aab2; font-size:0.82rem; line-height:1.5;">
-                        เพิ่ม <strong style="color:#98ffdb;">TMDB API Key ฟรี</strong> ใน <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">js/tmdb-images.js</code>
-                        — สมัคร 2 นาที ที่
-                        <a href="https://www.themoviedb.org/signup" target="_blank" style="color:#98ffdb;">themoviedb.org</a>
-                    </div>
-                </div>
-                <button onclick="this.closest('#tmdb-hint').remove(); localStorage.setItem('cinemint_hint_closed','1')"
-                    style="background:none; border:none; color:#6b7680; cursor:pointer; font-size:1.2rem; padding:4px; flex-shrink:0;">✕</button>
-            </div>
-        `;
-        document.body.appendChild(banner);
     }
 
     return { hydrateAll };

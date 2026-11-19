@@ -15,7 +15,7 @@
 <body>
 
 <header>
-    <a href="index.html" class="logo">🍃 CineMint <span>รีวิวโดย AI</span></a>
+    <a href="index.html" class="logo">🍃 CineMint <span>Movie Intelligence</span></a>
     <div class="search-bar">
         <input type="text" id="searchInput" placeholder="🔍 ค้นหาหนัง, นักแสดง, ผู้กำกับ..." autocomplete="off">
         <div class="search-results" id="searchResults"></div>
@@ -85,7 +85,7 @@
                 <i class="fa-solid fa-paper-plane"></i> ส่งข้อความ
             </button>
         </div>
-        <div class="form-success" id="form-success">
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
             <div style="font-size:2rem;margin-bottom:10px;">🎉</div>
             ขอบคุณที่ติดต่อมานะครับ!<br>
             <span style="font-weight:400;font-size:0.9rem;color:var(--mint-dim);">
@@ -98,8 +98,8 @@
 
     <h2><i class="fa-solid fa-circle-question" style="color:var(--mint-glow);font-size:1rem;"></i> คำถามที่พบบ่อย</h2>
     <dl class="faq-list">
-        <dt>คะแนนของ MintBot AI มาจากไหน?</dt>
-        <dd>MintBot วิเคราะห์ภาพยนตร์จากหลายมิติโดยไม่ได้รับค่าตอบแทนจากสตูดิโอใดๆ คะแนนสะท้อนคุณค่าทางศิลปะและความบันเทิงตามที่ AI ประเมิน ซึ่งอาจแตกต่างจากรสนิยมส่วนตัวของแต่ละคน</dd>
+        <dt>คะแนนของ CineMint มาจากไหน?</dt>
+        <dd>คะแนนและบทวิเคราะห์เป็นข้อมูลที่จัดเก็บไว้ในฐานข้อมูล CineMint ไม่ได้ถูกสร้างขึ้นใหม่โดย Generative AI ทุกครั้งที่เปิดหน้าเว็บ ส่วน MintBot ใน V1 ใช้การค้นคืนข้อมูลและกฎการตอบคำถาม</dd>
         <dt>จะแนะนำหนังที่อยากให้รีวิวได้อย่างไร?</dt>
         <dd>ส่งชื่อหนัง ปีที่ฉาย และเหตุผลที่อยากให้รีวิวมาในฟอร์มด้านบน เลือกหัวข้อ "แนะนำหนังให้รีวิว" ทีมของเราจะพิจารณาและเพิ่มในฐานข้อมูลให้เร็วที่สุด</dd>
         <dt>ไม่เห็นด้วยกับรีวิวจะทำอย่างไร?</dt>
@@ -110,7 +110,7 @@
 <footer>
     <div>
         <h3>🍃 CineMint</h3>
-        <p>รีวิวหนังเชิงลึกจาก AI อย่างเป็นกลาง ไม่รับอิทธิพลจากสตูดิโอ<br>วิเคราะห์ทุกเรื่องด้วยข้อมูลและเหตุผล ไม่ใช่ความรู้สึกเพียงอย่างเดียว</p>
+        <p>ข้อมูลภาพยนตร์ บทวิเคราะห์ และเครื่องมือช่วยตัดสินใจเลือกหนัง<br>ค้นพบภาพยนตร์ที่เหมาะกับคุณด้วย CineMint</p>
     </div>
     <div>
         <h4>สำรวจ</h4>
@@ -134,7 +134,7 @@
         </p>
     </div>
     <div class="footer-bottom">
-        © 2026 CineMint — Powered by MintBot AI &nbsp;•&nbsp; Make by Karn Jungaung
+        © 2026 CineMint — Movie Discovery &amp; Intelligence &nbsp;•&nbsp; Make by Karn Jungaung
     </div>
 </footer>
 <audio id="bg-audio" loop preload="auto" src="https://cdn.pixabay.com/audio/2026/06/19/audio_b51b8d68f8.mp3"></audio>
@@ -148,35 +148,45 @@
 <script src="js/tmdb-images.js"></script>
 <script src="js/search.js"></script>
 <script>
-// Contact form — client-side validation + success state (ไม่มี backend)
+// Contact form — prepares a message in the visitor's own email application.
+// CineMint V1 has no form backend, so never show a false "sent" state.
 document.getElementById("cf-submit").addEventListener("click", () => {
-    const name    = document.getElementById("cf-name").value.trim();
-    const email   = document.getElementById("cf-email").value.trim();
+    const name = document.getElementById("cf-name").value.trim();
+    const email = document.getElementById("cf-email").value.trim();
+    const subjectSelect = document.getElementById("cf-subject");
+    const subjectLabel = subjectSelect.selectedOptions[0]?.textContent.trim();
     const message = document.getElementById("cf-message").value.trim();
 
     if (!name || !email || !message) {
         const missing = [];
-        if (!name)    missing.push("ชื่อ");
-        if (!email)   missing.push("อีเมล");
+        if (!name) missing.push("ชื่อ");
+        if (!email) missing.push("อีเมล");
         if (!message) missing.push("ข้อความ");
-        alert(`กรุณากรอกข้อมูลให้ครบ: ${missing.join(', ')}`);
+        alert(`กรุณากรอกข้อมูลให้ครบ: ${missing.join(", ")}`);
         return;
     }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         alert("รูปแบบอีเมลไม่ถูกต้อง");
         return;
     }
 
-    // ซ่อนฟอร์ม แสดง success
-    ["cf-name","cf-email","cf-subject","cf-message"].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.closest('.form-group') && (el.closest('.form-group').style.display = 'none');
-    });
-    document.querySelector(".form-row").style.display = "none";
-    document.querySelector(".form-submit").style.display = "none";
-    document.getElementById("form-success").style.display = "block";
+    const subject = `[CineMint] ${subjectLabel || "ข้อความติดต่อ"}`;
+    const body = [
+        `ชื่อ: ${name}`,
+        `อีเมลสำหรับติดต่อกลับ: ${email}`,
+        "",
+        message
+    ].join("\n");
+    const mailto = `mailto:karnjungaung@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+
+    const status = document.getElementById("form-success");
+    status.textContent = "กำลังเปิดโปรแกรมอีเมลพร้อมข้อความที่กรอกไว้ หากโปรแกรมไม่เปิดขึ้น ให้ส่งอีเมลไปที่ karnjungaung@gmail.com ด้วยตนเอง และข้อความจะยังไม่ถูกส่งจนกว่าคุณจะกด Send";
+    status.style.display = "block";
 });
-</script>
+
     <script src="js/mintbot-chat.js"></script>
 </body>
 </html>

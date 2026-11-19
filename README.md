@@ -1,300 +1,149 @@
-# 🍃 CineMint — AI Movie Review
+# 🍃 CineMint
 
-> เว็บรีวิวและวิเคราะห์ภาพยนตร์ด้วย AI  
-> **ดูหนังให้น้อยลง เลือกหนังให้ดีขึ้น ด้วยข้อมูลและเหตุผลจาก AI**
+> **Discover. Understand. Choose Better.**
+>
+> แพลตฟอร์มค้นหา สำรวจ และเปรียบเทียบภาพยนตร์ พร้อมผู้ช่วย MintBot สำหรับค้นข้อมูลจากฐานข้อมูลของ CineMint
 
-🌐 **Website:** https://karnjungaung-afk.github.io/Cinemint/
-
----
-
-## 🎬 About CineMint
-
-**CineMint** คือเว็บไซต์สำหรับรีวิว วิเคราะห์ และค้นพบภาพยนตร์ โดยใช้ **MintBot AI** ช่วยประเมินภาพยนตร์จากข้อมูลและองค์ประกอบต่าง ๆ เพื่อให้ผู้ใช้สามารถตัดสินใจเลือกหนังที่ต้องการดูได้ง่ายขึ้น
-
-CineMint เน้นการรีวิวเชิงวิเคราะห์ โดยพยายามให้คะแนนจากข้อมูลและเหตุผล ไม่ใช่อาศัยเพียงความรู้สึกหรือกระแสความนิยม
-
-โปรเจกต์นี้ถูกออกแบบมาในสไตล์ **Minimal / Dark / Mint Green** ให้ใช้งานง่าย ดูสะอาด และเหมาะสำหรับการค้นหาและสำรวจภาพยนตร์
+🌐 **Production (V1):** https://karnjungaung-afk.github.io/Cinemint/  
+📦 **Repository:** https://github.com/karnjungaung-afk/Cinemint
 
 ---
 
-## ✨ Features
+## About
 
-### 🤖 AI Movie Reviews
+CineMint V1 เป็นเว็บไซต์ภาพยนตร์แบบ Static Web Application สร้างด้วย HTML, CSS และ JavaScript โดยมีฐานข้อมูลภาพยนตร์ที่จัดเก็บไว้ใน Repository และโหลดบน Browser
 
-รีวิวและวิเคราะห์ภาพยนตร์ด้วย **MintBot AI** พร้อมคะแนนที่ช่วยให้ผู้ใช้เห็นภาพรวมของภาพยนตร์แต่ละเรื่องได้ง่ายขึ้น
+เว็บไซต์ออกแบบด้วยแนวทาง Dark Cinema และ Mint Green Accent มีเป้าหมายช่วยให้ผู้ใช้ค้นพบภาพยนตร์ อ่านข้อมูล และเปรียบเทียบตัวเลือกก่อนตัดสินใจรับชม
 
----
+> **สถานะ MintBot ใน V1:** MintBot ปัจจุบันเป็นระบบค้นคืนข้อมูลภายในเครื่อง (local retrieval) ที่ใช้ keyword matching, rule-based intent detection และ template responses จาก `movieDatabase` ไม่ได้เรียก Generative AI / LLM API การเชื่อมต่อ LLM จริงเป็นส่วนหนึ่งของแผน CineMint 2.0
 
-### 🔍 Movie Search
+## Features
 
-ค้นหาข้อมูลได้จาก
+- **Movie Discovery:** สำรวจภาพยนตร์และค้นหาจากชื่อ ผู้กำกับ แนวหนัง หรือนักแสดง
+- **Movie Details:** ดูเรื่องย่อ นักแสดง ผู้กำกับ ตัวอย่างภาพยนตร์ และรีวิว
+- **Watchlist:** บันทึกภาพยนตร์ไว้ดูภายหลังใน Browser ปัจจุบัน โดยใช้ Local Storage
+- **Movie Comparison:** เปรียบเทียบภาพยนตร์ได้สูงสุด 3 เรื่อง
+- **Tier List:** จัดกลุ่มภาพยนตร์ตามคะแนนที่เก็บในฐานข้อมูล
+- **Statistics:** ดูสถิติแนวหนัง การกระจายคะแนน แนวโน้มตามปี และข้อมูลผู้กำกับ
+- **MintBot Chat:** ค้นหาและแนะนำภาพยนตร์จากข้อมูลในฐานข้อมูลด้วยกฎและเทมเพลต
+- **Responsive Layout:** รองรับหน้าจอ Desktop และ Mobile
 
-- ชื่อภาพยนตร์
-- นักแสดง
-- ผู้กำกับ
+## Technology
 
-ช่วยให้ค้นหาหนังที่ต้องการได้อย่างรวดเร็วจากช่องค้นหาหลักของเว็บไซต์
+| Technology | Usage |
+|---|---|
+| HTML5 | Page structure |
+| CSS3 | Styling and responsive layout |
+| JavaScript | UI, search, movie logic and interactions |
+| GitHub Pages | V1 hosting |
+| TMDB image CDN | Movie poster and backdrop images |
+| OMDb API | Optional external ratings integration; disabled unless configured |
 
----
-
-### 🆕 New Releases
-
-ดูภาพยนตร์ออกใหม่และภาพยนตร์ที่กำลังฉาย เพื่อช่วยค้นหาหนังใหม่ ๆ ที่น่าสนใจ
-
----
-
-### ⭐ AI Top Picks
-
-รวมภาพยนตร์ที่ได้รับคะแนนสูงจากระบบ **MintBot AI** เพื่อช่วยเลือกหนังที่ได้รับการประเมินว่าโดดเด่น
-
----
-
-### 🏆 Top Rated
-
-ดูและจัดอันดับภาพยนตร์ตามคะแนน พร้อมค้นหาหนังที่ได้รับคะแนนสูงที่สุดในฐานข้อมูล CineMint
-
----
-
-### 🎖️ Movie Tier List
-
-CineMint แบ่งระดับภาพยนตร์ออกเป็น Tier ตามคะแนน
-
-| Tier | Score | Description |
-|---|---:|---|
-| 🟣 **S Tier** | 90–100 | Masterpiece — หนังระดับยอดเยี่ยมที่ควรดูอย่างน้อยหนึ่งครั้ง |
-| 🔵 **A Tier** | 80–89 | Excellent — ยอดเยี่ยมและแนะนำอย่างยิ่ง |
-| 🟢 **B Tier** | 70–79 | Good — หนังที่ดีและคุ้มค่าสำหรับแฟนแนวนั้น |
-| 🟡 **C Tier** | 60–69 | Average — มีจุดน่าสนใจ แต่ยังไม่ถึงระดับแนะนำ |
-| 🔴 **D Tier** | < 60 | Below Average — ควรพิจารณาก่อนตัดสินใจดู |
-
----
-
-### 🧭 Discover
-
-ระบบสำหรับค้นพบภาพยนตร์ใหม่ ๆ จากฐานข้อมูล CineMint
-
-ผู้ใช้สามารถสำรวจหนังทีละเรื่องและบันทึกภาพยนตร์ที่สนใจไว้สำหรับกลับมาดูภายหลัง
-
----
-
-### ⚖️ Movie Comparison
-
-เลือกภาพยนตร์อย่างน้อย **2 เรื่อง** เพื่อเปรียบเทียบข้อมูลและคะแนนระหว่างภาพยนตร์
-
-ช่วยให้ตัดสินใจได้ง่ายขึ้นเมื่อเลือกไม่ถูกว่าจะดูเรื่องไหนดี
-
----
-
-### 📊 Movie Statistics
-
-หน้าแสดงข้อมูลและสถิติเชิงลึกจากฐานข้อมูล CineMint เช่น
-
-- 🎭 การกระจายตัวของแนวภาพยนตร์
-- ⭐ การกระจายตัวของคะแนน MintBot AI
-- 📅 คะแนนเฉลี่ยของภาพยนตร์ในแต่ละปี
-- 🎬 ผู้กำกับที่มีภาพยนตร์ในฐานข้อมูลมากที่สุด
-
----
-
-## 🤖 MintBot AI
-
-**MintBot AI** คือระบบ AI ที่ใช้สำหรับช่วยวิเคราะห์และประเมินภาพยนตร์ภายใน CineMint
-
-แนวคิดหลักคือการวิเคราะห์ภาพยนตร์จาก **ข้อมูลและเหตุผล** เพื่อสร้างรีวิวที่มีโครงสร้างและช่วยให้ผู้ใช้ตัดสินใจเลือกหนังได้ง่ายขึ้น
-
-> CineMint พยายามนำเสนอรีวิวเชิงลึกอย่างเป็นกลาง และไม่รับอิทธิพลจากสตูดิโอภาพยนตร์
-
----
-
-## 🎨 Design
-
-CineMint ใช้แนวทางการออกแบบแบบ
-
-- 🌑 Dark Theme
-- 🍃 Mint Green Accent
-- 🧼 Minimal UI
-- 📱 Responsive Layout
-- 🎞️ Movie-focused Interface
-- ✨ Modern UI/UX
-
-โทนสีเขียว Mint ถูกนำมาใช้เป็นเอกลักษณ์หลักของเว็บไซต์และเป็นที่มาของชื่อ **CineMint**
-
----
-
-## 🛠️ Technologies
-
-โปรเจกต์ CineMint เป็น Web Application ที่ทำงานผ่าน Browser โดยใช้เทคโนโลยีฝั่ง Frontend
-
-```text
-HTML
-CSS
-JavaScript
-GitHub Pages
-TMDB
-MintBot AI
-```
-
-### TMDB
-
-ข้อมูลรูปภาพและโปสเตอร์ภาพยนตร์บางส่วนใช้ข้อมูลจาก **TMDB — The Movie Database**
-
-> การใช้งานโปสเตอร์จาก TMDB จำเป็นต้องตั้งค่า TMDB API Key ตามการตั้งค่าของโปรเจกต์
-
----
-
-## 📂 Project Structure
-
-ตัวอย่างโครงสร้างของโปรเจกต์
+## Project Structure (V1)
 
 ```text
 Cinemint/
-│
 ├── index.html
-├── now-playing.html
+├── now-showing.html
 ├── top-rated.html
 ├── tierlist.html
 ├── discover.html
 ├── compare.html
+├── movie-detail.html
+├── watchlist.html
 ├── stats.html
-│
+├── about.html
+├── contact.html
+├── privacy.html
 ├── css/
-│   └── ...
-│
+│   └── style.css
 ├── js/
+│   ├── movies-data.js
+│   ├── main.js
+│   ├── detail.js
+│   ├── discover.js
+│   ├── compare.js
+│   ├── search.js
+│   ├── watchlist.js
+│   ├── stats.js
+│   ├── stats-worker.js
+│   ├── tierlist.js
+│   ├── now-showing.js
+│   ├── top-rated.js
+│   ├── mintbot-chat.js
 │   ├── tmdb-images.js
-│   └── ...
-│
-├── assets/
-│   └── ...
-│
-└── README.md
+│   ├── omdb-api.js
+│   └── utils.js
+├── images/
+│   └── facebookLogo.png
+└── .github/
+    └── workflows/
+        └── static.yml
 ```
 
-> โครงสร้างไฟล์จริงอาจแตกต่างจากตัวอย่างตามเวอร์ชันของโปรเจกต์
+The current movie data is maintained in `js/movies-data.js`. Keep movie IDs stable because pages and saved Watchlist entries refer to them.
 
----
+## Run Locally
 
-## 🚀 Getting Started
+1. Clone the repository:
 
-### 1. Clone Repository
+   ```bash
+   git clone https://github.com/karnjungaung-afk/Cinemint.git
+   cd Cinemint
+   ```
 
-```bash
-git clone https://github.com/karnjungaung-afk/Cinemint.git
-```
+2. Open the folder with VS Code.
+3. Start the site using the Live Server extension, or any local static HTTP server.
+4. Open the local URL in a browser.
 
-จากนั้นเข้าไปที่โฟลเดอร์โปรเจกต์
+The V1 pages do not require a build step.
 
-```bash
-cd Cinemint
-```
+## Images and Third-party Services
 
----
-
-### 2. Run Website
-
-เนื่องจากเว็บไซต์ทำงานด้วย HTML, CSS และ JavaScript สามารถเปิด
-
-```text
-index.html
-```
-
-ผ่าน Browser ได้โดยตรง
-
-หรือแนะนำให้เปิดผ่าน Local Server เช่น **VS Code Live Server**
-
----
-
-## 🔑 TMDB API Configuration
-
-หากต้องการให้ระบบโหลดโปสเตอร์หรือข้อมูลจาก TMDB ให้ตั้งค่า API Key ภายในไฟล์ที่เกี่ยวข้องกับ TMDB
-
-ตัวอย่าง:
-
-```javascript
-const TMDB_API_KEY = "YOUR_TMDB_API_KEY";
-```
-
-> ⚠️ ไม่ควรนำ API Key ที่เป็นความลับ commit ลง GitHub repository โดยตรง
-
----
-
-## 🌐 Deployment
-
-CineMint ถูก Deploy ผ่าน **GitHub Pages**
-
-Production Website:
-
-**https://karnjungaung-afk.github.io/Cinemint/**
-
----
-
-## 🎯 Project Goal
-
-เป้าหมายของ CineMint คือสร้างแพลตฟอร์มที่ช่วยให้การเลือกภาพยนตร์ง่ายขึ้น โดยรวม
-
-**Movie Database + AI Review + Ranking + Discovery + Data Visualization**
-
-ไว้ในเว็บไซต์เดียว
-
-แทนที่จะบอกเพียงว่า
-
-> “หนังเรื่องนี้สนุกหรือไม่สนุก”
-
-CineMint ต้องการช่วยตอบว่า
-
-> **“หนังเรื่องนี้ดีตรงไหน เหมาะกับใคร และคุ้มค่ากับเวลาที่จะดูหรือไม่”**
-
----
-
-## 🔮 Future Improvements
-
-ฟีเจอร์ที่สามารถพัฒนาเพิ่มเติมในอนาคต
-
-- 🤖 AI Recommendation ตามความชอบของผู้ใช้
-- 💬 AI Chat สำหรับถามเกี่ยวกับภาพยนตร์
-- ❤️ Favorite / Watchlist
-- 👤 User Account
-- 🎭 Recommendation ตาม Mood
-- 🔎 Natural Language Movie Search
-- 📈 ระบบวิเคราะห์คะแนนเชิงลึก
-- 🎞️ Trailer Integration
-- 🌐 รองรับหลายภาษา
-- 📱 Progressive Web App (PWA)
-- 🧠 Personalized Movie Recommendation
-
----
-
-## 👨‍💻 Developer
-
-**Karn Jungaung**
-
-GitHub  
-https://github.com/karnjungaung-afk
-
-CineMint  
-https://karnjungaung-afk.github.io/Cinemint/
-
----
-
-## 📜 Disclaimer
-
-CineMint เป็นโปรเจกต์สำหรับการพัฒนาเว็บไซต์และระบบวิเคราะห์ภาพยนตร์ด้วย AI
-
-ข้อมูล ชื่อภาพยนตร์ รูปภาพ โปสเตอร์ และเครื่องหมายการค้าต่าง ๆ เป็นทรัพย์สินของเจ้าของลิขสิทธิ์แต่ละราย
-
-ข้อมูลและโปสเตอร์ภาพยนตร์บางส่วนได้รับผ่าน **TMDB API**
+- Movie image URLs use TMDB's image CDN.
+- Some movie pages embed trailers from YouTube.
+- Google Fonts and Font Awesome are loaded from their respective CDNs.
+- Optional ambient audio is served from Pixabay.
 
 This product uses the TMDB API but is not endorsed or certified by TMDB.
 
+Review the relevant provider terms and obtain the appropriate permissions before using CineMint for commercial purposes. Image URLs and movie metadata may be subject to provider terms and rights held by their respective owners.
+
+## Security Notes
+
+- Do not commit private API keys, access tokens, passwords, or service-role credentials.
+- V1 is a public client-side application. Any credential placed in a browser JavaScript file can be read by visitors.
+- Keep optional browser-side TMDB/OMDb keys empty in the public build. V2 should route credentialed requests through a server-side API.
+- Watchlist and chat history in V1 are stored locally in the current browser/session; they are not user accounts and do not sync between devices.
+- The V1 contact form prepares a message in the visitor's email application. The visitor must review and send the email themselves.
+
+## Development Notes
+
+Before merging changes into `main`:
+
+1. Run the V1 validation script when available.
+2. Check JavaScript syntax.
+3. Test the affected page on desktop and mobile.
+4. Review the complete diff.
+5. Use a Pull Request; do not push experimental work directly to `main`.
+
+## CineMint 2.0 Roadmap
+
+CineMint 2.0 is planned as an incremental migration while keeping V1 available:
+
+1. Stabilize V1 data, images, security and documentation.
+2. Build a new Premium Cinema interface with Next.js and TypeScript.
+3. Add a backend and account system.
+4. Migrate Watchlist, ratings and collections to persistent user data.
+5. Introduce a real LLM-powered MintBot through a protected server API.
+6. Build personalized recommendations and measurable AI evaluation.
+7. Add administration, usage controls and business features after validating demand and licensing.
+
+## Developer
+
+**Karn Jungaung**  
+GitHub: https://github.com/karnjungaung-afk
+
 ---
 
-## 🍃 CineMint
-
-**AI-powered movie reviews, rankings and discovery.**
-
-> 🎬 Discover better movies with data, analysis and AI.
-
----
-
-© 2026 **CineMint** — Powered by **MintBot AI**  
-Made by **Karn Jungaung**
+© 2026 CineMint. Movie titles, images, logos and related marks belong to their respective owners.

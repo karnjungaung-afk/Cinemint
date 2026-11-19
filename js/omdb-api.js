@@ -18,7 +18,8 @@
 // เครดิต: ข้อมูลจาก OMDb API (https://www.omdbapi.com) ซึ่งดึงข้อมูลบางส่วนมาจาก IMDb
 // ====================================================================
 
-const OMDB_KEY = ""; // <-- ใส่ OMDb API Key ตรงนี้ เช่น "a1b2c3d4"
+// Keep empty in the public V1 build. Configure provider credentials server-side in V2.
+const OMDB_KEY = "";
 
 const OMDbAPI = (() => {
     const CACHE_KEY  = "cinemint_omdb_v1";
