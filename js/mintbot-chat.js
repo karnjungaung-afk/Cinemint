@@ -300,9 +300,20 @@
         `;
     }
 
+    function escapeHtml(value) {
+        const entities = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        };
+        return String(value ?? "").replace(/[&<>"']/g, char => entities[char]);
+    }
+
     function formatText(text) {
-        // แปลง **bold** เป็น <strong>, \n เป็น <br>
-        return text
+        // Escape untrusted text first, then allow only the small Markdown subset.
+        return escapeHtml(text)
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
             .replace(/\n/g, '<br>');
     }

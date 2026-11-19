@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (!matches.length) {
-            searchResults.innerHTML = `<div class="search-empty">ไม่พบหนังที่ตรงกับ "${query}"</div>`;
+            const emptyState = document.createElement("div");
+            emptyState.className = "search-empty";
+            emptyState.textContent = `ไม่พบหนังที่ตรงกับ "${query}"`;
+            searchResults.replaceChildren(emptyState);
         } else {
             searchResults.innerHTML = matches.slice(0, 8).map(m => `
                 <a href="movie-detail.html?id=${m.id}" class="search-result-item">
