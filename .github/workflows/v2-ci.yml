@@ -31,6 +31,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Verify complete V1 movie migration
+        run: node ../../scripts/export-legacy-movies.mjs --check
+
       - name: Install dependencies
         run: npm install --no-package-lock --no-audit --no-fund
 
