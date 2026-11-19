@@ -10,4 +10,12 @@ export type MoviePreview = {
   posterUrl: string;
   backdropUrl: string;
   editorialNote: string;
+  director: string;
+  cast: string[];
+  releaseDate: string;
+  status: string;
+  tmdbId: number;
+  trailerEmbed: string | null;
+  pros: string[];
+  cons: string[];
 };
