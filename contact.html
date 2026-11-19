@@ -166,7 +166,7 @@ document.getElementById("cf-submit").addEventListener("click", () => {
         return;
     }
 
-    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         alert("รูปแบบอีเมลไม่ถูกต้อง");
         return;
     }
@@ -177,13 +177,13 @@ document.getElementById("cf-submit").addEventListener("click", () => {
         `อีเมลสำหรับติดต่อกลับ: ${email}`,
         "",
         message
-    ].join("\\n");
+    ].join("\n");
     const mailto = `mailto:karnjungaung@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;
 
     const status = document.getElementById("form-success");
-    status.textContent = "เราเตรียมข้อความไว้ในโปรแกรมอีเมลแล้ว กรุณาตรวจสอบและกด Send ในโปรแกรมอีเมลของคุณ ข้อความจะยังไม่ถูกส่งจนกว่าคุณจะกดส่ง";
+    status.textContent = "กำลังเปิดโปรแกรมอีเมลพร้อมข้อความที่กรอกไว้ หากโปรแกรมไม่เปิดขึ้น ให้ส่งอีเมลไปที่ karnjungaung@gmail.com ด้วยตนเอง และข้อความจะยังไม่ถูกส่งจนกว่าคุณจะกด Send";
     status.style.display = "block";
 });
 
