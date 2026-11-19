@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="not-found-icon">🎬</div>
                 <h2>ไม่พบข้อมูลภาพยนตร์</h2>
                 <p style="color:var(--text-gray);margin-bottom:28px;">
-                    รหัส "${movieId || ''}" ไม่มีอยู่ในฐานข้อมูล CineMint
+                    รหัส "<span id="requested-movie-id"></span>" ไม่มีอยู่ในฐานข้อมูล CineMint
                 </p>
                 <a href="index.html" class="btn-mint">← กลับหน้าหลัก</a>
             </div>`;
+        const requestedId = pageContainer.querySelector("#requested-movie-id");
+        if (requestedId) requestedId.textContent = movieId || "";
         return;
     }
 
