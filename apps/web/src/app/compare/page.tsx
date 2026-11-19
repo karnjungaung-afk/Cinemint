@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { CompareWorkspace } from "@/components/compare-workspace";
+import { movies } from "@/data/movies";
 
 export const metadata: Metadata = {
   title: "Compare films",
@@ -12,21 +13,14 @@ export default function ComparePage() {
         <p className="eyebrow">SIDE BY SIDE</p>
         <h1>Compare films.</h1>
         <p>
-          A clearer way to understand the differences between two films.
-          The interactive comparison tool will be migrated after the V2 movie data layer is ready.
+          Explore differences in genre, runtime, editorial notes, and stored CineMint scores.
+          This first preview compares the sample catalogue locally.
         </p>
       </header>
-      <section className="assistant-shell">
-        <div className="assistant-main">
-          <p className="eyebrow">COMPARISON WORKSPACE</p>
-          <h2>Make the choice with context.</h2>
-          <p>
-            This preview establishes the page structure only. Movie selection,
-            score breakdowns, and comparison logic are not connected yet.
-          </p>
-          <Link className="button button--mint" href="/discover">Choose a film to explore</Link>
-        </div>
-      </section>
+      <CompareWorkspace movies={movies} />
+      <p className="subpage__notice">
+        Scores and movie details are sample data migrated from V1. This comparison does not make a personalized recommendation.
+      </p>
     </main>
   );
 }
