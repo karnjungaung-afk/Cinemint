@@ -305,3 +305,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+.assistant-prompt-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
+.assistant-prompt { padding: 13px 14px; border: 1px solid var(--line); color: #c2d0c6; font-size: 11px; line-height: 1.6; }
+.loading-mark { margin-top: 34px; color: var(--mint); font-size: 48px; }
+
+@media (max-width: 640px) {
+  .assistant-prompt-list { grid-template-columns: 1fr; }
+}
