@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { FilmCard } from "@/components/film-card";
+import { DiscoverPanel } from "@/components/discover-panel";
 import { movies } from "@/data/movies";
 
 export const metadata: Metadata = {
   title: "Discover",
-  description: "Explore a small preview of the CineMint movie catalogue.",
+  description: "Explore films with the CineMint discovery preview.",
 };
 
 export default function DiscoverPage() {
@@ -14,18 +14,14 @@ export default function DiscoverPage() {
         <p className="eyebrow">EXPLORE AT YOUR OWN PACE</p>
         <h1>Discover films.</h1>
         <p>
-          Browse the CineMint preview catalogue. Advanced search, genre filters,
-          and personalized recommendations will be connected in later migration phases.
+          Search titles, explore stories, and narrow the catalogue by genre.
+          Personalized recommendations will be connected after the user preference and data layers are ready.
         </p>
       </header>
-      <div className="film-grid">
-        {movies.map((movie, index) => (
-          <FilmCard key={movie.slug} movie={movie} index={index} />
-        ))}
-      </div>
+      <DiscoverPanel movies={movies} />
       <p className="subpage__notice">
         Preview catalogue: this page currently contains a small sample from V1.
-        The full movie catalogue will be migrated after data validation.
+        Search and genre filters run locally in your browser; they are not yet connected to a live movie service.
       </p>
     </main>
   );
