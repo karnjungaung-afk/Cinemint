@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เกี่ยวกับเรา — CineMint</title>
-    <meta name="description" content="CineMint คือแพลตฟอร์มรีวิวภาพยนตร์เชิงลึกโดย MintBot AI วิเคราะห์อย่างเป็นกลาง ไม่รับอิทธิพลจากสตูดิโอ">
+    <meta name="description" content="CineMint คือแพลตฟอร์มค้นหา สำรวจ และเปรียบเทียบภาพยนตร์ พร้อมบทวิเคราะห์และผู้ช่วย MintBot">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,39 +36,37 @@
 <main class="content-page">
     <span class="eyebrow">🍃 About Us</span>
     <h1>เกี่ยวกับ CineMint</h1>
-    <p class="lead">แพลตฟอร์มรีวิวภาพยนตร์เชิงลึกที่วิเคราะห์ทุกเรื่องด้วย MintBot AI อย่างเป็นกลาง ไม่รับอิทธิพลจากสตูดิโอหรืองบโฆษณาของค่ายหนัง</p>
+    <p class="lead">แพลตฟอร์มที่ช่วยให้ผู้ใช้ค้นพบภาพยนตร์ อ่านบทวิเคราะห์ และเปรียบเทียบตัวเลือกก่อนตัดสินใจรับชม</p>
 
     <h2>จัดทำโดย</h2>
     <p>นายกานต์ จองอ่อง</p>
-    <p>รหัสนักศึกษา : 68219090002</p>
-    <p>เทคนิคคอมพิวเตอร์</p>
-    <p>ปวช.2</p>
+    
     
     <h2><i class="fa-solid fa-bullseye" style="color:var(--mint-glow);font-size:1rem;"></i> พันธกิจของเรา</h2>
     <p>CineMint เกิดขึ้นจากความเชื่อว่าการวิจารณ์ภาพยนตร์ที่ดีควรมาจากการวิเคราะห์ที่เป็นกลาง ตรงไปตรงมา และไม่ถูกชี้นำโดยผลประโยชน์ทางธุรกิจ เราเชื่อว่าทุกคนสมควรได้รับข้อมูลที่ซื่อสัตย์ก่อนตัดสินใจเสียเวลาสองชั่วโมงกับภาพยนตร์เรื่องใดเรื่องหนึ่ง</p>
-    <p>ในยุคที่รีวิวถูกซื้อขายและโฆษณาแฝงแพร่หลาย MintBot AI ทำหน้าที่เป็นนักวิจารณ์ที่ไม่มีอคติทางการตลาด วิเคราะห์ภาพยนตร์แต่ละเรื่องจากคุณค่าทางศิลปะและความบันเทิงล้วนๆ</p>
+    <p>ใน V1 ข้อมูลรีวิวและคะแนนถูกจัดเก็บไว้ในฐานข้อมูล CineMint ส่วน MintBot Chat ใช้การค้นคืนข้อมูล การจับคำสำคัญ และกฎการตอบคำถาม ไม่ได้เรียก Generative AI หรือ LLM แบบเรียลไทม์</p>
 
-    <h2><i class="fa-solid fa-robot" style="color:var(--mint-glow);font-size:1rem;"></i> MintBot AI ทำงานอย่างไร?</h2>
+    <h2><i class="fa-solid fa-robot" style="color:var(--mint-glow);font-size:1rem;"></i> MintBot ทำงานอย่างไรใน V1?</h2>
     <div class="how-it-works">
         <div class="step-card">
             <div class="step-num">01</div>
-            <h4>รวบรวมข้อมูล</h4>
-            <p>MintBot วิเคราะห์ข้อมูลจากหลายแหล่ง ทั้งบทสัมภาษณ์ผู้สร้าง ข้อมูลเทคนิคการถ่ายทำ และบริบทของภาพยนตร์</p>
+            <h4>ใช้ฐานข้อมูลภาพยนตร์</h4>
+            <p>MintBot ค้นข้อมูลจากรายการภาพยนตร์ที่จัดเก็บไว้ในฐานข้อมูลของ CineMint</p>
         </div>
         <div class="step-card">
             <div class="step-num">02</div>
-            <h4>วิเคราะห์หลายมิติ</h4>
-            <p>ประเมินงานกำกับ บทภาพยนตร์ การแสดง ดนตรีประกอบ และงานภาพอย่างละเอียดในแต่ละด้าน</p>
+            <h4>จับเจตนาของคำถาม</h4>
+            <p>ระบบใช้คำสำคัญและกฎเพื่อแยกคำถาม เช่น ชื่อหนัง แนวภาพยนตร์ ผู้กำกับ และการเปรียบเทียบ</p>
         </div>
         <div class="step-card">
             <div class="step-num">03</div>
-            <h4>ให้คะแนนอย่างเป็นกลาง</h4>
-            <p>คะแนนจาก 1–100 คำนวณโดยไม่มีอคติจากการตลาดหรืองบประมาณโฆษณาของสตูดิโอ</p>
+            <h4>ค้นหาและจัดอันดับ</h4>
+            <p>ระบบนำข้อมูลที่ตรงกับคำถามมาคัดเลือก โดยใช้คะแนนและรายละเอียดที่มีอยู่ในฐานข้อมูล</p>
         </div>
         <div class="step-card">
             <div class="step-num">04</div>
-            <h4>สรุปเป็นภาษาไทย</h4>
-            <p>ผลการวิเคราะห์นำเสนอในรูปแบบอ่านง่าย พร้อมจุดเด่นและจุดด้อยที่ชัดเจน</p>
+            <h4>ประกอบคำตอบ</h4>
+            <p>MintBot สร้างคำตอบจากเทมเพลตและผลการค้นหา ปัจจุบันยังไม่ใช่ Generative AI และจะได้รับการพัฒนาเป็น LLM ใน CineMint 2.0</p>
         </div>
     </div>
 
