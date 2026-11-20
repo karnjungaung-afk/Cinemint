@@ -13,7 +13,11 @@ export function getSupabaseEnvironment(): SupabaseEnvironment | null {
 
   try {
     const parsedUrl = new URL(url);
-    if (parsedUrl.protocol !== "https:" && parsedUrl.hostname !== "localhost") {
+    const isLocalDevelopment =
+      parsedUrl.protocol === "http:" &&
+      ["localhost", "127.0.0.1", "[::1]"].includes(parsedUrl.hostname);
+
+    if (parsedUrl.protocol !== "https:" && !isLocalDevelopment) {
       return null;
     }
   } catch {
