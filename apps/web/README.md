@@ -1,6 +1,6 @@
 # CineMint 2.0 — Web Preview
 
-This folder contains the new Next.js application developed alongside the existing V1 static website.
+This Next.js application is developed alongside the existing V1 static website. Keep V1 on GitHub Pages until the V2 production cutover is separately reviewed and approved.
 
 ## Requirements
 
@@ -27,17 +27,34 @@ npm run start
 
 ## Current scope
 
-This is the Phase 1 UI and application-foundation preview. It includes:
+- Premium Cinema design system and responsive layouts.
+- Home, discovery, movie detail, compare, watchlist preview, and MintBot preview.
+- All 83 V1 movie records retained in the typed seed dataset.
+- Supabase SSR client foundation for browser and server components.
+- Next.js 16 `proxy.ts` session refresh using the Supabase cookie adapter.
+- Email/password sign-up, sign-in, email-confirmation callback, sign-out, and protected account page.
 
-- Premium Cinema design tokens and responsive layout
-- Shared navigation, footer, film cards, and reusable film rows
-- Homepage and discovery page with local title/story search and genre filters
-- Dynamic movie detail routes generated from the migrated catalogue
-- Side-by-side comparison preview
-- Browser-only watchlist preview
-- MintBot interface preview (not connected to an LLM)
+## Still preview-only
 
-The V1 movie catalogue has been migrated as a typed seed dataset containing all 83 movie records. The full original record is retained in `src/data/movies.seed.json`; `src/data/movies.ts` maps it into the V2 UI model.
+- Watchlist remains browser Local Storage; account sync is not connected.
+- MintBot is a UI preview; no messages are sent to an LLM.
+- Movie editorial scores and reviews are stored V1 content, not generated live.
+- User preferences and watchlist database tables are designed but not provisioned.
+- Google/Apple OAuth, subscription billing, payment verification, and personalized recommendations are not connected.
+
+## Supabase setup
+
+Use a **dedicated CineMint Supabase project**. Do not reuse the existing Supabase project for another application.
+
+1. Create or select the isolated CineMint project.
+2. Copy `.env.example` to `.env.local`.
+3. Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, and `NEXT_PUBLIC_SITE_URL`.
+4. In Supabase Auth, configure the Site URL and allowed redirect URL for the local and deployed CineMint origins.
+5. Apply a reviewed CineMint schema migration only to that isolated project.
+
+The app deliberately renders a setup notice and skips session refresh when Supabase environment variables are absent. No service-role/secret key is needed by this phase; do not add one to the browser environment.
+
+## Movie data parity
 
 To verify that the seed file matches V1:
 
@@ -50,18 +67,6 @@ To regenerate it after an approved V1 data change:
 ```bash
 node ../../scripts/export-legacy-movies.mjs
 ```
-
-## Preview-only behavior
-
-- Search and genre filters run locally against the seed dataset.
-- Watchlist entries are stored in this browser's Local Storage. They are not linked to an account and do not sync between devices.
-- Compare uses the scores stored in V1. It is not a personal recommendation.
-- MintBot is a static UI preview. Messages are not sent to an AI service and no chat history is collected here.
-- Authentication, Supabase, live LLM requests, subscription billing, and server-side recommendation logic are not connected yet.
-
-## Environment variables
-
-Copy `.env.example` to `.env.local` only when the relevant backend phase begins. Server credentials must never use the `NEXT_PUBLIC_` prefix or be committed.
 
 ## Deployment
 
