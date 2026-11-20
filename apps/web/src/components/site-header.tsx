@@ -29,6 +29,7 @@ export function SiteHeader() {
           <span aria-hidden="true">⌕</span>
           <span>Find a film</span>
         </Link>
+        <Link className="header-account" href="/account">Account <span aria-hidden="true">↗</span></Link>
         <span className="header-status">2.0 PREVIEW</span>
       </div>
     </header>
