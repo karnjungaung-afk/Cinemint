@@ -34,7 +34,8 @@ function getEmailCallbackUrl(): string {
 
   try {
     const origin = new URL(configuredOrigin);
-    if (origin.protocol !== "https:" && origin.hostname !== "localhost") {
+    const isLocalDevelopment = origin.protocol === "http:" && origin.hostname === "localhost";
+    if (origin.protocol !== "https:" && !isLocalDevelopment) {
       return "http://localhost:3000/auth/callback?next=%2Faccount";
     }
 
