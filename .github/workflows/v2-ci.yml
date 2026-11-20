@@ -2,9 +2,10 @@ name: V2 Next.js Preview CI
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["main", "feat/v2-premium-preview"]
     paths:
       - "apps/web/**"
+      - "docs/architecture/**"
       - ".github/workflows/v2-ci.yml"
   workflow_dispatch:
 
