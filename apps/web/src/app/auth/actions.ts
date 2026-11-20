@@ -8,6 +8,15 @@ function readString(formData: FormData, key: string): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function readPassword(formData: FormData): string {
+  const value = formData.get("password");
+  return typeof value === "string" ? value : "";
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 function safeNextPath(value: string): string {
   if (
     value.startsWith("/") &&
@@ -21,16 +30,26 @@ function safeNextPath(value: string): string {
 }
 
 function getEmailCallbackUrl(): string {
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  return new URL("/auth/callback?next=%2Faccount", origin).toString();
+  const configuredOrigin = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+  try {
+    const origin = new URL(configuredOrigin);
+    if (origin.protocol !== "https:" && origin.hostname !== "localhost") {
+      return "http://localhost:3000/auth/callback?next=%2Faccount";
+    }
+
+    return new URL("/auth/callback?next=%2Faccount", origin).toString();
+  } catch {
+    return "http://localhost:3000/auth/callback?next=%2Faccount";
+  }
 }
 
 export async function signIn(formData: FormData): Promise<never> {
   const email = readString(formData, "email").toLowerCase();
-  const password = readString(formData, "password");
+  const password = readPassword(formData);
   const nextPath = safeNextPath(readString(formData, "next"));
 
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) || !password) {
+  if (!isValidEmail(email) || !password) {
     redirect("/login?error=invalid-input");
   }
 
@@ -52,12 +71,12 @@ export async function signIn(formData: FormData): Promise<never> {
 export async function signUp(formData: FormData): Promise<never> {
   const displayName = readString(formData, "displayName");
   const email = readString(formData, "email").toLowerCase();
-  const password = readString(formData, "password");
+  const password = readPassword(formData);
 
   if (
     displayName.length < 2 ||
     displayName.length > 60 ||
-    !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) ||
+    !isValidEmail(email) ||
     password.length < 8
   ) {
     redirect("/signup?error=invalid-input");
